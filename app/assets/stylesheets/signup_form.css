@@ -1,0 +1,130 @@
+.signup-form-container {
+    width: 399px;
+    color: #333;
+}
+
+.signup-form-header {
+    font-family: Helvetica Neue,Helvetica,Arial,sans-serif; 
+    -webkit-font-smoothing: antialiased;
+    width: 100%;
+}
+
+.signup-form-header h1 {
+    margin: 0;
+    margin-bottom: 5px;
+    font-size: 36px;
+}
+
+.signup-form-header p {
+    margin: 0;
+    margin-bottom: 20px;
+    font-size: 19px;
+}
+
+.signup-form input, select {
+    border-radius: 5px;
+    border: 1px solid #bdc7d8;
+}
+
+.signup-form input[type=text], .signup-form input[type=password], .signup-form input[type=email] {
+    width: 100%; 
+    box-sizing: border-box;
+    height: 39px;
+    padding: 8px 10px;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.name-input {
+    display: flex;
+    justify-content: space-between;
+}
+
+.name-input input {
+    width: 50%;
+}
+
+.name-input input:first-child {
+    margin-right: 10px;
+}
+
+.signup-form h2 {
+    color: #90949c;
+    font-size: 16px;
+    margin: 10px 0 5px 0;
+}
+
+.signup-form select {
+    font-size: 13px;
+    height: 30px;
+    padding: 5px;
+}
+
+.gender-input {
+    padding: 5px 4px;
+}
+
+.signup-form input[type=radio] {
+    margin: 3px;
+    vertical-align: top;
+}
+
+.signup-form input[type=radio] + label {
+    font-size: 18px;
+    padding: 0 10px 0 3px;
+}
+
+.signup-form button {
+    color: white;
+    margin: 10px 0;
+    width: 194px;
+    padding: 7px 20px;
+    font-size: 19px;
+    background: linear-gradient(#67ae55, #578843);
+    background-color: #69a74e;
+    box-shadow: inset 0 1px 1px #a4e388;
+    border-color: #3b6e22 #3b6e22 #2c5115;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.signup-form button:hover {
+    background: linear-gradient(#7abd60, #578843);
+}
+
+.signup-error-msg {
+    display: none; 
+    background-color: #be4b49;
+    color: white;
+    box-shadow: 0 0 0 1px rgba(139, 3, 0, .75), 0 1px 10px rgba(0, 0, 0, .35);
+    font-size: 13px;
+    max-width: 300px;
+    padding: 10px;
+    -webkit-font-smoothing: subpixel-antialiased;
+    border-radius: 2px;
+    margin-top: 10px;
+}
+
+.signup-error-msg-container ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.signup-error-msg li {
+    display: block;
+}
+
+.signup-error-msg-container {
+    width: 200px;
+
+    float: right;
+    right: 0;
+    position: relative;
+}
+
+.signup-description {
+    font-size: 11px;
+    color: #777;
+    margin: 11px 0;
+}
