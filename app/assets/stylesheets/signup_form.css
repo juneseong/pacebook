@@ -40,11 +40,11 @@
     justify-content: space-between;
 }
 
-.name-input input {
+.name-input-item {
     width: 50%;
 }
 
-.name-input input:first-child {
+.name-input-item.first {
     margin-right: 10px;
 }
 
@@ -74,7 +74,7 @@
     padding: 0 10px 0 3px;
 }
 
-.signup-form button {
+.signup-btn {
     color: white;
     margin: 10px 0;
     width: 194px;
@@ -88,7 +88,7 @@
     cursor: pointer;
 }
 
-.signup-form button:hover {
+.signup-btn:hover {
     background: linear-gradient(#7abd60, #578843);
 }
 
@@ -117,7 +117,6 @@
 
 .signup-error-msg-container {
     width: 200px;
-
     float: right;
     right: 0;
     position: relative;
@@ -127,4 +126,91 @@
     font-size: 11px;
     color: #777;
     margin: 11px 0;
+}
+
+.signup-msg-btn i {
+    color: #666;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.signup-msg-btn {
+    background-color: transparent;
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+.signup-msg-btn.first {
+    margin-left: 14px;
+}
+
+.signup-info-msg-container {
+    display: none;
+    position: absolute;
+    width: 312px;
+    background-color: white;
+    border-radius: 2px;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, .1), 0 1px 10px rgba(0, 0, 0, .35);
+    padding: 12px;
+    margin-left: -358px;
+}
+
+.signup-info-msg-container.second {
+    margin-left: -342px;
+}
+
+.signup-info-msg {
+    padding-bottom: 12px;
+    font-size: 12px;
+}
+
+.signup-info-msg p {
+    margin: 0;
+    margin-bottom: 12px;
+}
+
+.signup-info-close-btn {
+    color: white;
+    background-color: #4267b2;
+    border: 1px solid #4267b2;
+    padding: 0 8px;
+    height: 24px;
+    font-weight: 500;
+    border-radius: 2px;
+    font-size: 12px;
+    line-height: 22px;
+    margin-top: 4px;
+    cursor: pointer;
+}
+
+.msg-active {
+    display: inline-block;
+}
+
+.signup-form input.error-active {
+    border: 1px solid red;
+    position: relative;
+}
+
+i.fas.fa-exclamation-circle {
+    display: none;
+    color: #be4b49;
+    font-size: 21px;
+    position: absolute;
+    z-index: 1;
+    margin-top: 9px;
+    margin-left: 162px;
+}
+
+i.fas.fa-exclamation-circle.first-name {
+    margin-left: 162px;
+}
+
+i.fas.fa-exclamation-circle.last-name, i.fas.fa-exclamation-circle.email, i.fas.fa-exclamation-circle.password {
+    margin-left: 365px;
+}
+
+i.fas.fa-exclamation-circle.error-active {
+    display: flex;
 }

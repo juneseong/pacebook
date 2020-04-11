@@ -1,8 +1,9 @@
 .top-nav-container {
     height: 42px;
-    background-color: #4267A8;
-    border: 1px solid #29487d;
+    background-color: #4267AA;
+    border-bottom: 1px solid #29487d;
     font-size: 12px;
+    box-sizing: border-box;
 }
 
 .top-nav {
@@ -20,7 +21,7 @@
 
 .top-nav ul li {
     display: inline-block;
-    height: 27px;
+    height: 28px;
     vertical-align: middle;
     cursor: pointer;
 }
@@ -59,7 +60,7 @@ i.fab.fa-facebook-square {
     font-size: 28px;
     margin: 0;
     top: 0;
-    margin-right: 5px;
+    margin-right: 7px;
 }
 
 .top-nav p {
@@ -72,10 +73,56 @@ i.fab.fa-facebook-square {
 
 .search-bar {
     width: 448px;
-    height: 19px;
-    font-size: 14px;
+    height: 17px;
+    font-size: 13px;
     color: #1d2129;
-    padding: 3px 6px;
-    border: 1px solid #282828;
+    padding: 3px 0 4px 7px;
+    border: none;
     border-radius: 3px;
+    border: 1px solid #3b5998;
+}
+
+.logout-dropdown {
+    display: none;
+    background-color: white;
+    width: 200px;
+    border-radius: 2px;
+    border: 1px solid rgba(0, 0, 0, .15);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, .3);
+    margin-right: -300px;
+    position: absolute;
+    margin-top: 10px;
+    margin-left: 100px;
+    cursor: pointer;
+    padding-top: 5px;
+}
+
+.logout-dropdown p {
+    color: #666;
+    font-weight: normal;
+    padding: 5px 0 5px 25px;
+    margin-top: 0;
+    margin-bottom: 5px;
+    -webkit-font-smoothing: subpixel-antialiased;
+}
+
+.logout-dropdown p:hover {
+    background-color: #4267b2;
+    color: white;
+}
+
+.logout-arrow-btn {
+    background-color: transparent;
+    border: none;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+.dropdown-active {
+    display: block;
+}
+
+i.fas.fa-caret-down.dropdown-active {
+    color: white;
 }

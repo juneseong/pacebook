@@ -1,0 +1,98 @@
+.profile-body-left {
+    width: 310px;
+}
+
+.profile-body-right {
+    width: 527px;
+}
+
+.profile-body-left i {
+    font-size: 14px;
+    color: white;
+    border-radius: 50%;
+    padding: 5px;
+    margin-right: 8px;
+}
+
+.profile-intro-bio i {
+    background-color: #4267B2;
+}
+
+.profile-photos i {
+    background-color: #B1D587;
+}
+
+.profile-friends i {
+    background-color: #F3425F;
+    width: 24px;
+    height: 24px;
+    padding: 4px;
+    box-sizing: border-box;
+}
+
+.profile-intro-info i {
+    font-size: 14px;
+    color: #333;
+    width: 12px;
+}
+
+.profile-intro-info p {
+    display: inline-block;
+    margin: 0;
+}
+
+.profile-intro {
+    background-color: white;
+    border: 1px solid #dddfe2;
+    width: 100%;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    padding: 12px;
+    box-sizing: border-box;
+}
+
+.profile-intro hr {
+    border: 0.5px solid #eee;
+}
+
+.profile-intro-bio p {
+    text-align: center;
+}
+
+.profile-photos {
+    background-color: white;
+    border: 1px solid #dddfe2;
+    width: 100%;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    padding: 12px;
+    box-sizing: border-box;
+}
+
+.profile-friends {
+    background-color: white;
+    border: 1px solid #dddfe2;
+    width: 100%;
+    border-radius: 3px;
+    padding: 12px;
+    box-sizing: border-box;
+}
+
+.profile-post-form {
+    background-color: white;
+    border: 1px solid #dddfe2;
+    width: 100%;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    padding: 12px;
+    box-sizing: border-box;
+}
+
+.profile-posts {
+    background-color: white;
+    border: 1px solid #dddfe2;
+    width: 100%;
+    border-radius: 3px;
+    padding: 12px;
+    box-sizing: border-box;
+}

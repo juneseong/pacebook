@@ -50,7 +50,9 @@ export default class LoginForm extends React.Component {
                 <div className="login-form">
                     <div className="logo"><h1><Link to="/">pacebook</Link></h1></div>
                         <form>
-                        <div className={`login-error-msg ${klass}`}>{this.renderErrors()}</div>
+                            <div className={`login-error-msg ${klass}`}>
+                                {this.renderErrors()}
+                            </div>
                             <table>
                                 <thead>
                                     <tr>
