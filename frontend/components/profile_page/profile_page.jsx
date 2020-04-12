@@ -6,6 +6,12 @@ import Photos from "./photos";
 import { Link, Route } from "react-router-dom";
 
 export default class ProfilePage extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { imageUrl: "", imageFile: null };
+        this.uploadProfileImg = this.uploadProfileImg.bind(this);
+    }
+
     componentDidMount() {
         this.props.fetchUser(this.props.match.params.userId);
     }
@@ -14,6 +20,10 @@ export default class ProfilePage extends React.Component {
         if (!this.props.user.email && this.props.match.params.userId !== prevProps.match.params.userId) {
             this.props.fetchUser(this.props.match.params.userId);
         }
+    }
+
+    uploadProfileImg(e) {
+
     }
 
     fullName(first_name, last_name) {
@@ -26,12 +36,15 @@ export default class ProfilePage extends React.Component {
         let fullName;
         let EditProfilePhoto;
         let EditCoverPhoto;
-
         const { user, currentUser } = this.props;
+        const ProfileNavLink = !currentUser ? () => <></> : () => <Link to={`/users/${user.id}`}><li><p>Timeline</p></li></Link>;
+        const TimelineRoute = !currentUser ? () => <></> : () => <Route exact path="/users/:userId" render={() => <Timeline user={user} currentUser={currentUser} />} />;
+        const AboutRoute = !currentUser ? () => <Route exact path={["/users/:userId", "/users/:userId/about"]} component={About} /> : () => <Route path="/users/:userId/about" component={About} />;
 
         if (user.email) {
             const { first_name, last_name } = user;
             fullName = this.fullName(first_name, last_name);
+            
 
             if (currentUser && currentUser.id === user.id) {
                 EditProfilePhoto = () => (
@@ -39,6 +52,7 @@ export default class ProfilePage extends React.Component {
                         <div className="add-photo-text">
                             <i className="fas fa-camera"></i><br />
                             <p>Add Photo</p>
+                            <input className="file-upload" type="file" onChange={this.uploadProfileImg} />
                         </div>
                         <div className="half-circle-left"></div>
                         <div className="half-circle-right"></div>
@@ -85,7 +99,7 @@ export default class ProfilePage extends React.Component {
                     </div>
                     <div className="profile-nav">
                         <ul>
-                            <Link to={`/users/${user.id}`}><li><p>Timeline</p></li></Link>
+                            <ProfileNavLink />
                             <Link to={`/users/${user.id}/about`}><li><p>About</p></li></Link>
                             <Link to={`/users/${user.id}/friends`}><li><p>Friends</p></li></Link>
                             <Link to={`/users/${user.id}/photos`}><li><p>Photos</p></li></Link>
@@ -95,8 +109,8 @@ export default class ProfilePage extends React.Component {
                 </div>
 
                 <div className="profile-body">    
-                    <Route exact path="/users/:userId" render={() => <Timeline user={user} currentUser={currentUser} />} />
-                    <Route path="/users/:userId/about" component={About} />
+                    <TimelineRoute />
+                    <AboutRoute />
                     <Route path="/users/:userId/friends" render={() => <Friends user={user} currentUser={currentUser} />} />
                     <Route path="/users/:userId/photos" render={() => <Photos user={user} currentUser={currentUser} />} />
                 </div> 

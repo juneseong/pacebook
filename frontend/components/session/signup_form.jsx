@@ -162,11 +162,10 @@ export default class SignupForm extends React.Component {
                                 </button>
                             </label>
                             <span onMouseDown={this.handleMsgOpen("birthdayMsg")} className={`signup-info-msg-container ${this.state.klass.birthdayMsg}`}>
+                                <span class="signup-info-msg-arrow-border" />
+                                <span class="signup-info-msg-arrow" />
                                 <span className="signup-info-msg">
-                                    <p>
-                                        <b>Providing your birthday</b> helps make sure you get the right Facebook experience for your age. 
-                                        If you want to change who sees this, go to the About section of your profile.
-                                    </p>
+                                    <p><b>Providing your birthday</b> helps make sure you get the right Facebook experience for your age.</p>
                                 </span>
                                 <hr />
                                 <button onMouseDown={this.handleMsgClose} className="signup-info-close-btn">Close</button>
@@ -179,8 +178,10 @@ export default class SignupForm extends React.Component {
                                 <input onChange={this.update("gender")} type="radio" id="male" value="M" name="gender" />
                                 <label>Male</label>
                                 <span onMouseDown={this.handleMsgOpen("genderMsg")} className={`signup-info-msg-container second ${this.state.klass.genderMsg}`}>
+                                    <span class="signup-info-msg-arrow-border" />
+                                    <span class="signup-info-msg-arrow" />
                                     <span className="signup-info-msg">
-                                        <p>You can change who sees your gender on your profile later. Select Custom to choose another gender, or if you'd rather not say.</p>
+                                        <p>You can change who sees your gender on your profile later.</p>
                                     </span>
                                     <hr />
                                     <button onMouseDown={this.handleMsgClose} className="signup-info-close-btn">Close</button>

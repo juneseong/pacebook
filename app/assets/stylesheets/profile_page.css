@@ -107,7 +107,6 @@
 
 .add-photo-text {
     position: absolute;
-    z-index: 1;
     left: 52px;
     top: 26px;
 }
@@ -247,4 +246,20 @@
 
 .profile-page-section-body {
     height: 300px;
+}
+
+.file-upload {
+   opacity: 0.0;
+   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+   filter: alpha(opacity=0);
+   -moz-opacity: 0.0;
+   -khtml-opacity: 0.0;
+   position: absolute;
+   top: 0;
+   left: 0;
+   bottom: 0;
+   right: 0;
+   width: 100%;
+   height:100%;
+   cursor: pointer;
 }

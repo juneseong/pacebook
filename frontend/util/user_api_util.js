@@ -13,10 +13,12 @@ export const createUser = user => (
     })
 );
 
-export const updateUser = user => (
+export const updateUser = (userId, formData) => (
     $.ajax({
-        url: `/api/users/${user.id}`,
+        url: `/api/users/${userId}`,
         method: "PATCH",
-        data: { user }
+        data: formData,
+        contentType: false,
+        processData: false
     })
 );

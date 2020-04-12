@@ -51,7 +51,7 @@
 
 .top-nav ul li i {
     color: #1c1e21;
-    font-size: 19px;
+    font-size: 18px;
     margin: 4px 6px;
 }
 
@@ -73,7 +73,8 @@ i.fab.fa-facebook-square {
 
 .search-bar {
     width: 448px;
-    height: 17px;
+    box-sizing: border-box;
+    height: 26px;
     font-size: 13px;
     color: #1d2129;
     padding: 3px 0 4px 7px;
@@ -125,4 +126,20 @@ i.fab.fa-facebook-square {
 
 i.fas.fa-caret-down.dropdown-active {
     color: white;
+}
+
+.logout-dropdown-tooltip {
+    position: absolute;
+    right: 13px;
+    top: -13px;
+    border: 6px solid transparent;
+    border-bottom: 7px solid white;
+}
+
+.logout-dropdown-tooltip-border {
+    position: absolute;
+    right: 12px;
+    top: -15px;
+    border: 7px solid transparent;
+    border-bottom: 8px solid rgba(0, 0, 0, .1);
 }

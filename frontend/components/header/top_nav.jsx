@@ -43,6 +43,8 @@ export default class TopNav extends React.Component {
                             </button>
                         </li>
                         <div className={`logout-dropdown ${this.state.klass}`}>
+                            <span className="logout-dropdown-tooltip-border" />
+                            <span className="logout-dropdown-tooltip" />
                             <p onMouseDown={this.props.logout}>Log Out</p>
                         </div>
                     </ul>

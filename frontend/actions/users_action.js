@@ -25,7 +25,7 @@ export const createUser = user => dispatch => (
             errors => dispatch(receiveUsersErrors(errors.responseJSON)))
 );
 
-export const updateUser = user => dispatch => (
-    UserApiUtil.updateUser(user)
-        .then(user => dispatch(receiveCurrentUser(user)))
+export const updateUser = (userId, formData) => dispatch => (
+    UserApiUtil.updateUser(userId, formData)
+        .then(user => dispatch(receiveUser(user)))
 );

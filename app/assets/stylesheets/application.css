@@ -29,6 +29,10 @@ hr {
     border: 0.5px solid #ddd;
 }
 
+button {
+    outline: none;
+}
+
 .active {
     display: flex;
 }

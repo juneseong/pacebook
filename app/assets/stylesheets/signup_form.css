@@ -153,11 +153,13 @@
     border-radius: 2px;
     box-shadow: 0 0 0 1px rgba(0, 0, 0, .1), 0 1px 10px rgba(0, 0, 0, .35);
     padding: 12px;
-    margin-left: -358px;
+    margin-top: -3px;
+    margin-left: -363px;
 }
 
 .signup-info-msg-container.second {
-    margin-left: -342px;
+    margin-left: -348px;
+    margin-top: -7px;
 }
 
 .signup-info-msg {
@@ -182,6 +184,22 @@
     line-height: 22px;
     margin-top: 4px;
     cursor: pointer;
+}
+
+.signup-info-msg-arrow {
+    position: absolute;
+    top: 11px;
+    right: -12px;
+    border: 6px solid transparent;
+    border-left: 6px solid #fff;
+}
+
+.signup-info-msg-arrow-border {
+    position: absolute;
+    top: 10px;
+    right: -14px;
+    border: 7px solid transparent;
+    border-left: 7px solid rgba(0, 0, 0, .3);
 }
 
 .msg-active {

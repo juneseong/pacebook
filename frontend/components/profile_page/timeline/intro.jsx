@@ -3,7 +3,6 @@ import React from "react";
 export default class Intro extends React.Component {
     render() {
         const { user, currentUser } = this.props;
-
         if (user === null) return null;
         const Bio = () => {
             if (currentUser && user.id === currentUser.id) {

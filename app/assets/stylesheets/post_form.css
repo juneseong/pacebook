@@ -1,0 +1,104 @@
+.profile-post-form {
+    background-color: white;
+    border: 1px solid #dddfe2;
+    width: 100%;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.post-form-nav {
+    width: 100%;
+    margin: 0;
+    background-color: #f5f6f7;
+    border-bottom: 1px solid #dddfe2;
+    padding: 8px 12px;
+    box-sizing: border-box;
+    font-weight: 600;
+}
+
+.post-form-nav p {
+    margin: 0;
+    display: inline-block;
+}
+
+.post-form-nav i {
+    font-size: 12px;
+    color: #4b4f56;
+    padding: 0 8px 0 5px;
+}
+
+.profile-post-form hr {
+    margin-top: 0;
+    width: 95%;
+}
+
+.post-photo-btn {
+    height: 32px;
+    line-height: 32px;
+    color: #4b4f56;
+    padding: 0 15px 0 35px;
+    border-radius: 18px;
+    cursor: pointer;
+    font-weight: 600;
+    background: url("https://img.icons8.com/color/48/000000/image.png") no-repeat scroll 9px 5px;
+    background-color: #f5f6f7;
+    background-size: 23px;
+    border: none;
+    margin-bottom: 8px;
+    margin-left: 12px;
+}
+
+.post-photo-btn:hover {
+    background-color: #ebedf0;
+}
+
+.profile-post-form textarea {
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 75px;
+    padding-left: 65px;
+    padding-top: 25px;
+    border: none;
+    font-size: 13px;
+    outline: none;
+    resize: none;
+}
+
+.profile-post-form img {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    border-radius: 50%;
+    margin: 12px;
+}
+
+.post-form-btn-nav {
+    display: none;
+    background-color: #f5f6f7;
+    border-top: 1px solid #dddfe2;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 10px 12px;
+}
+
+.post-form-btn-nav button {
+    background-color: #9cb4d8;
+    border-color: #9cb4d8;
+    color: white;
+    height: 28px;
+    width: 100%;
+}
+
+.post-form-btn-nav button.add-color {
+    background-color: #4267b2;
+    border-color: #4267b2;
+}
+
+.post-form-btn-nav button.add-color:hover {
+    background-color: #365899;
+    border-color: #365899;
+}
+
