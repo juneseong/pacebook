@@ -62,16 +62,24 @@
 }
 
 .add-cover-photo-text i:hover:after {
-    content: "   Add Cover Photo";
     white-space: pre;
     font-size: 12px;
     font-family: Arial, Helvetica, sans-serif;
+}
+
+.add-cover-photo-text.add i:hover:after {
+    content: "   Add Cover Photo";
+}
+
+.add-cover-photo-text.edit i:hover:after {
+    content: "   Update Cover Photo";
 }
 
 .add-photo-text p {
     margin: 0;
     font-size: 12px;
     color: white;
+    font-weight: bold;
 }
 
 .profile-nav p {
@@ -86,6 +94,9 @@
     width: 100%;
     z-index: -1;
     box-sizing: border-box;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
 }
 
 .profile-photo-container {
@@ -100,15 +111,21 @@
     left: 16px;
     bottom: 0;
     text-align: center;
-    cursor: pointer;
     top: 65px;
     box-sizing: border-box;
 }
 
 .add-photo-text {
     position: absolute;
-    left: 52px;
     top: 26px;
+}
+
+.add-photo-text.add {
+    left: 51px;
+}
+
+.add-photo-text.edit {
+    left: 60px;
 }
 
 .half-circle {
@@ -116,6 +133,15 @@
     margin-bottom: 0;
     margin-top: 80px;
     opacity: 0.9;
+    cursor: pointer;
+}
+
+.half-circle.edit {
+    opacity: 0;
+}
+
+.half-circle.edit:hover {
+    opacity: 1;
 }
 
 .half-circle-left {
@@ -248,7 +274,7 @@
     height: 300px;
 }
 
-.file-upload {
+.profile-img-upload, .cover-img-upload {
    opacity: 0.0;
    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
    filter: alpha(opacity=0);

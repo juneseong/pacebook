@@ -11,13 +11,24 @@ class Api::UsersController < ApplicationController
     end
 
     def update
-        @user = User.find(params[:id])
+        @user = current_user
+        
+        if params[:user][:profile_img]
+            @user.profile_img.attach(params[:user][:profile_img])
+            user_update = @user.save
+        elsif params[:user][:cover_img]
+            @user.cover_img.attach(params[:user][:cover_img])
+            user_update = @user.save
+        else
+            user_update = @user.update(user_params)
+        end
 
-        if @user.update(user_params)
+        if user_update
             render :show
         else
             render json: @user.errors.full_messages, status: 422
         end
+
     end
 
     def show
@@ -26,6 +37,6 @@ class Api::UsersController < ApplicationController
 
     private
     def user_params
-        params.require(:user).permit(:email, :password, :first_name, :last_name, :birth_date, :gender, :profile_img)
+        params.require(:user).permit(:email, :password, :first_name, :last_name, :birth_date, :gender)
     end
 end

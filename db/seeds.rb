@@ -10,14 +10,12 @@ User.destroy_all
 Post.destroy_all
 
 user1 = User.create!(email: "jyjseong@gmail.com", password: "123456", first_name: "june", last_name: "seong", birth_date: DateTime.new(1993,6,25), gender: "F", school: "App Academy", work: "App Academy", bio: "Hello World!", city: "Flushing", state: "New York")
-user2 = User.create!(email: "koba@gmail.com", password: "123456", first_name: "koba", last_name: "inu", birth_date: DateTime.new(2019,7,5), gender: "M", school: "App Academy", bio: "Woof!", city: "New York", state: "New York" )
-user3 = User.create!(email: "ken@gmail.com", password: "123456", first_name: "ken", last_name: "ting", birth_date: DateTime.new(1993,9,15), gender: "M")
-user4 = User.create!(email: "hae@gmail.com", password: "123456", first_name: "haejun", last_name: "chung", birth_date: DateTime.new(1992,2,10), gender: "M")
-user5 = User.create!(email: "christina@gmail.com", password: "123456", first_name: "christina", last_name: "hulee", birth_date: DateTime.new(1991,1,1), gender: "F")
+user2 = User.create!(email: "ken@gmail.com", password: "123456", first_name: "ken", last_name: "ting", birth_date: DateTime.new(1993,9,15), gender: "M")
+user3 = User.create!(email: "hae@gmail.com", password: "123456", first_name: "haejun", last_name: "chung", birth_date: DateTime.new(1992,2,10), gender: "M")
+user4 = User.create!(email: "christina@gmail.com", password: "123456", first_name: "christina", last_name: "hulee", birth_date: DateTime.new(1991,1,1), gender: "F")
 
-Post.create!(body: "Initial post.", user_id: user1.id)
-Post.create!(body: "Woof! Woof!", user_id: user2.id)
-Post.create!(body: "I love Koba.", user_id: user3.id)
-Post.create!(body: "I am Haejun.", user_id: user4.id)
-Post.create!(body: "Tik Tok.", user_id: user5.id)
-Post.create!(body: "Hello World!", user_id: user1.id)
+post1 = Post.create!(body: "initial post", user_id: user1.id, receiver_id: user2.id)
+post2 = Post.create!(body: "I love Koba :)", user_id: user2.id, receiver_id: user1.id)
+post3 = Post.create!(body: "hi :)", user_id: user3.id, receiver_id: user3.id)
+post4 = Post.create!(body: "hello!", user_id: user4.id, receiver_id: user2.id)
+post5 = Post.create!(body: "hello world!", user_id: user1.id, receiver_id: user4.id)

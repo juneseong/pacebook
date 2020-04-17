@@ -1,40 +1,45 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 
-export default class TopNav extends React.Component {
+class TopNav extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             klass: ""
         };
 
+        this.logout = this.logout.bind(this);
         this.openDropdown = this.openDropdown.bind(this);
         this.closeDropdown = this.closeDropdown.bind(this);
     }
 
-    openDropdown() {
+    logout() {
+        this.props.logout()
+            .then(() => this.props.history.push("/"));
+    }
+
+    openDropdown(e) {
+        e.preventDefault();
         this.setState({ klass: "dropdown-active" });
     }
 
     closeDropdown(e) {
-        e.preventDefault();
         this.setState({ klass: "" });
     }
 
     render() {
         const { first_name, id } = this.props.user;
-        const firstName = first_name.slice(0, 1).toUpperCase() + first_name.slice(1).toLowerCase();
 
         return (
             <div className="top-nav-container">
                 <div className="top-nav">
                     <ul>
-                        <Link to="/"><li><i className="fab fa-facebook-square"></i></li></Link>
+                        <Link to="/"><li><i className="fab fa-facebook-f"></i></li></Link>
                         <li><input type="text" className="search-bar" placeholder="Search"/></li>
                     </ul>
 
                     <ul>
-                        <li><Link to={`/users/${id}`}><p>{firstName}</p></Link></li>
+                        <li className="top-nav-prof-img-li"><Link to={`/users/${id}`}><p>{first_name}</p></Link></li>
                         <li><Link to="/"><p>Home</p></Link></li>
                         <li><i className="fas fa-user-friends" /><i className="fab fa-facebook-messenger" /><i className="fas fa-bell"></i></li>
                         <li><i className="fas fa-question-circle"></i>
@@ -42,10 +47,10 @@ export default class TopNav extends React.Component {
                                 <i className={`fas fa-caret-down ${this.state.klass}`}></i>
                             </button>
                         </li>
-                        <div className={`logout-dropdown ${this.state.klass}`}>
+                        <div className={`logout-dropdown ${this.state.klass}`} onMouseDown={this.openDropdown}>
                             <span className="logout-dropdown-tooltip-border" />
                             <span className="logout-dropdown-tooltip" />
-                            <p onMouseDown={this.props.logout}>Log Out</p>
+                            <p onMouseDown={this.logout}>Log Out</p>
                         </div>
                     </ul>
                 </div>
@@ -53,3 +58,5 @@ export default class TopNav extends React.Component {
         )
     }
 }
+
+export default withRouter(TopNav);

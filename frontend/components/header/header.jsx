@@ -3,16 +3,16 @@ import LoginFormContainer from "../session/login_form_container";
 import TopNavContainer from "./top_nav_container";
 
 const Header = props => {
-        let Result;
+        let TopNav;
    
         if (props.currentUser) {
-            Result = () => (
+            TopNav = () => (
                 <>
                     <TopNavContainer />
                 </>
             );
         } else {
-            Result = () => (
+            TopNav = () => (
                 <>
                     <LoginFormContainer />
                 </>
@@ -21,7 +21,7 @@ const Header = props => {
 
         return (
             <>
-                <Result />
+                <TopNav />
             </>
         );
 };

@@ -1,0 +1,188 @@
+.newsfeed-container {
+    width: 1012px;
+    margin: 12px auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.newsfeed-container h3 {
+    font-size: 13px;
+    line-height: 28px;
+    -webkit-font-smoothing: antialiased;
+    color: #1d2129;
+    margin: 0;
+    padding: 0;
+    padding-left: 5px;
+    font-weight: 400;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.newsfeed-container p {
+    font-size: 12px;
+    line-height: 16px;
+    -webkit-font-smoothing: antialiased;
+    color: #616770;
+}
+
+.newsfeed-post-container {
+    width: 500px;
+}
+
+.newsfeed-post-items {
+    width: 100%;
+    border-radius: 3px;
+    box-sizing: border-box;
+    background-color: white;
+    border: 1px solid #dddfe2;
+    margin-bottom: 10px;
+    padding: 12px 12px 0 12px;
+}
+
+.newsfeed-left {
+    width: 180px;
+}
+
+.newsfeed-left p {
+    margin: 0;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.newsfeed-left img {
+    width: 24px;
+    height: 24px;
+    padding-left: 2px;
+}
+
+.newsfeed-right {
+    width: 308px;
+}
+
+.newsfeed-left ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.newsfeed-left ul li {
+    display: flex;
+    height: 21px;
+    cursor: pointer;
+    padding: 3px;
+}
+
+.newsfeed-left li:not(:first-child), .newsfeed-ul li {
+    border: 1px solid transparent;
+}
+
+li.newsfeed-li {
+    background-color: #f5f6f7;
+    border: 1px solid #dddfe2;
+    border-radius: 2px;
+}
+
+.newsfeed-left ul li:hover {
+    background-color: #f5f6f7;
+    border: 1px solid #dddfe2;
+    border-radius: 2px;
+}
+
+.newsfeed-posts button.post-edit-delete-btn {
+    margin-left: 445px;
+}
+
+.newsfeed-right-content {
+    padding: 12px;
+    background-color: white;
+    border: 1px solid #dddfe2;
+    border-radius: 3px;
+    margin-top: 12px;
+    color: #616770;
+}
+
+.newsfeed-right-content p {
+    display: table-cell;
+    margin: 0;
+    padding: 0;
+    vertical-align: middle;
+}
+
+.p-blue:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.newsfeed-right-content ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.newsfeed-right-content ul li {
+    padding: 0;
+    display: table;
+}
+
+.newsfeed-right-content img {
+    width: 20px;
+    height: 20px;
+    padding-right: 6px;
+}
+
+.newsfeed-right-ad {
+    padding: 0;
+    background-color: white;
+    margin-top: 12px;
+    border: 1px solid #dddfe2;
+    border-radius: 3px;
+}
+
+.newsfeed-right-ad nav:first-child p {
+    margin: 0;
+    padding: 4px 12px;
+    font-weight: bold;
+    border-bottom: 1px solid #dddfe2;
+}
+
+.newsfeed-right-ad nav:first-child {
+    background-color: #f5f6f7;
+}
+
+p.p-header {
+    padding-left: 5px;
+}
+
+p.p-footer {
+    padding-left: 10px;
+}
+
+.ad-logo img {
+    width: 80px;
+}
+
+.ad-logo {
+    height: 80px;
+    margin-top: 4px;
+}
+
+p.p-blue {
+    font-weight: bold;
+    color: #385898;
+}
+
+.app-ad-body {
+    padding: 12px;
+}
+
+.app-ad-body p {
+    margin: 0;
+    margin-bottom: 2px;
+}
+
+.app-ad-flex {
+    display: flex;
+}
+
+.app-ad-text {
+    margin: 4px 12px;
+}

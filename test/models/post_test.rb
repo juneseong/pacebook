@@ -2,11 +2,12 @@
 #
 # Table name: posts
 #
-#  id         :bigint           not null, primary key
-#  body       :text             not null
-#  user_id    :integer          not null
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id          :bigint           not null, primary key
+#  body        :text             not null
+#  user_id     :integer          not null
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  receiver_id :integer
 #
 require 'test_helper'
 

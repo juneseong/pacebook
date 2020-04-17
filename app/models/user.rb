@@ -34,6 +34,10 @@ class User < ApplicationRecord
         foreign_key: :user_id,
         class_name: :Post
 
+    has_many :received_posts,
+        foreign_key: :receiver_id,
+        class_name: :Post
+
     has_many :comments,
         foreign_key: :user_id,
         class_name: :Comment
@@ -77,5 +81,15 @@ class User < ApplicationRecord
     def reset_session_token!
         self.update!(session_token: User.generate_session_token)
         self.session_token
+    end
+
+    def self.fetch_authors(user)
+        authors = []
+
+        user.received_posts.includes(:user).each do |post|
+            authors.push(post.user)
+        end
+
+        authors
     end
 end
