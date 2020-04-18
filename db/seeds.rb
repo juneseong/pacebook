@@ -13,11 +13,14 @@ user1 = User.create!(email: "jyjseong@gmail.com", password: "123456", first_name
 user2 = User.create!(email: "ken@gmail.com", password: "123456", first_name: "ken", last_name: "ting", birth_date: DateTime.new(1993,9,15), gender: "M")
 user3 = User.create!(email: "hae@gmail.com", password: "123456", first_name: "haejun", last_name: "chung", birth_date: DateTime.new(1992,2,10), gender: "M")
 user4 = User.create!(email: "christina@gmail.com", password: "123456", first_name: "christina", last_name: "hulee", birth_date: DateTime.new(1991,1,1), gender: "F")
+user5 = User.create!(email: "koba@gmail.com", password: "123456", first_name: "koba", last_name: "inu", birth_date: DateTime.new(2010,1,1), gender: "M")
 
 user3.profile_img.attach(io:open("https://pacebook-seed.s3.amazonaws.com/image/hae.jpeg"), filename:"hae.jpeg")
 user2.profile_img.attach(io:open("https://pacebook-seed.s3.amazonaws.com/image/ken.jpg"), filename:"ken.jpg")
+user5.profile_img.attach(io:open("https://pacebook-seed.s3.amazonaws.com/image/koba.jpg"), filename:"koba.jpg")
+user5.cover_img.attach(io:open("https://pacebook-seed.s3.amazonaws.com/image/koba.jpg"), filename:"koba.jpg")
 
-post4 = Post.create!(body: "hi everyone!", user_id: user4.id, receiver_id: user2.id)
-post5 = Post.create!(body: "hello world :)", user_id: user1.id, receiver_id: user4.id)
+post1 = Post.create!(body: "hello world!", user_id: user4.id, receiver_id: user4.id)
 post2 = Post.create!(body: "I love Koba", user_id: user2.id, receiver_id: user1.id)
 post3 = Post.create!(body: "hi :)", user_id: user3.id, receiver_id: user1.id)
+post4 = Post.create!(body: "woof!", user_id: user5.id, receiver_id: user2.id)
