@@ -1,10 +1,11 @@
 import { RECEIVE_ALL_POSTS, RECEIVE_POST, REMOVE_POST } from '../actions/posts_action';
 
 const PostsReducer = (oldState = { post_ids: [] }, action) => {
+    // debugger
     Object.freeze(oldState);
     switch (action.type) {
         case RECEIVE_ALL_POSTS:
-            const posts = action.posts;
+            const posts = Object.assign({}, oldState, action.posts);
             posts.post_ids = action.post_ids;
             return Object.assign({}, oldState, posts);
         case RECEIVE_POST:

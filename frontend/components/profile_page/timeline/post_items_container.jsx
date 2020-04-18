@@ -4,6 +4,7 @@ import { deletePost, updatePost } from "../../../actions/posts_action";
 import { createLike, deleteLike } from "../../../actions/likes_action";
 
 const mapStateToProps = (state, ownProps) => {
+
     const { users, likes } = state.entities;
     return ({
         user: ownProps.post ? users[ownProps.post.user_id] : null,

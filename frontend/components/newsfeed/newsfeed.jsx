@@ -21,7 +21,8 @@ export default class Newsfeed extends React.Component {
                             post={post} 
                             posts={this.props.posts} 
                             currentUser={this.props.currentUser} 
-                            user={post.user} />
+                            // user={post.user} 
+                            />
                     );
         } else {
             posts = <p>Loading...</p>;

@@ -101,6 +101,8 @@ export default class PostItems extends React.Component {
   }
 
   render() {
+    if (!this.props.post) return null;
+
     let first_name = "";
     let last_name = "";
     let image = window.no_image;
@@ -127,7 +129,6 @@ export default class PostItems extends React.Component {
 
     if (this.props.post.user_id === this.props.currentUser.id)
       editBtnClass = "active";
-
 
     return (
       <div className="profile-post-items">

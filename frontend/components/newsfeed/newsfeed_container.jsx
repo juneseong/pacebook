@@ -3,7 +3,6 @@ import Newsfeed from "./newsfeed";
 import { fetchAllPosts } from "../../actions/posts_action"; 
 
 const mapStateToProps = ({entities: {newsfeed, users, posts}, session}) => {
-
     const filteredPosts = posts.post_ids.map(id => posts[id]);
 
     return {
