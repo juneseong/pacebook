@@ -62,36 +62,41 @@ export default class PostForm extends React.Component {
           className={"modal-bg " + this.state.button}
           onClick={this.handleModalClick}
         ></div>
-        <div
-          className="profile-post-form"
-          onClick={this.activatePostForm}
-        >
-          <div className="post-form-nav">
-            <i className="fas fa-pencil-alt"></i>
-            <p>Create Post</p>
+        <div className="profile-post-form-container">
+          <div className={"post-form-close-btn " + this.state.button} onMouseDown={this.deactivatePostForm}>
+            <i className="fas fa-times"></i>
           </div>
-          <form className={this.state.form}>
-            <div className="post-form-profile-img">
-              <img src={profileImg} />
+          <div
+            className="profile-post-form"
+            onClick={this.activatePostForm}
+          >
+            <div className="post-form-nav">
+              <i className="fas fa-pencil-alt"></i>
+              <p>Create Post</p>
             </div>
-            <textarea
-              ref={this.textarea}
-              placeholder={`What's on your mind, ${this.props.currentUser.first_name}?`}
-              onChange={this.update}
-              onFocus={this.focusTextarea}
-              value={this.state.body}
-            />
-            <hr />
-            <button className="post-photo-btn">Upload Photo</button>
-            <div className={`post-form-btn-nav ${this.state.button}`}>
-              <button
-                onClick={this.handleSubmit}
-                className={this.state.buttonColor}
-              >
-                Post
-              </button>
-            </div>
-          </form>
+            <form className={this.state.form}>
+              <div className="post-form-profile-img">
+                <img src={profileImg} />
+              </div>
+              <textarea
+                ref={this.textarea}
+                placeholder={`What's on your mind, ${this.props.currentUser.first_name}?`}
+                onChange={this.update}
+                onFocus={this.focusTextarea}
+                value={this.state.body}
+              />
+              <hr />
+              <button className="post-photo-btn">Upload Photo</button>
+              <div className={`post-form-btn-nav ${this.state.button}`}>
+                <button
+                  onClick={this.handleSubmit}
+                  className={this.state.buttonColor}
+                >
+                  Post
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
       </>
     );

@@ -1,4 +1,4 @@
-.profile-post-form {
+.profile-post-form-container {
     position: relative;
     z-index: 2;
     background-color: white;
@@ -106,4 +106,21 @@
 .post-form-btn-nav button.add-color:hover {
     background-color: #365899;
     border-color: #365899;
+}
+
+.post-form-close-btn {
+    position: absolute;
+    right: 12px;
+    top: 8px;
+    display: none;
+}
+
+.post-form-close-btn.active i {
+    color: #ccc;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.post-form-close-btn.active {
+    display: inline-block;
 }
