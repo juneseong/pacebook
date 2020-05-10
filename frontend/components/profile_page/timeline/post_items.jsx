@@ -5,68 +5,140 @@ import CommentItems from "./comment_items";
 export default class PostItems extends React.Component {
   constructor(props) {
     super(props);
+    let emojiImg;
+    let emojiColor = "";
+    if (props.like) {
+      switch (props.like.emoji_type) {
+        case "Like":
+          emojiColor = "#2078F4";
+          break;
+        case "Love":
+          emojiColor = "#F33E58";
+          break;
+        case "Angry":
+          emojiColor = "#E9710F";
+          break;
+        case "Haha":
+        case "Sad":
+        case "Wow":
+          emojiColor = "#F7B125";
+          break;
+      }
+    }
+
+    if (props.like) {
+      if (props.like.emoji_type === "Like") {
+        emojiImg = window.likedIcon;
+      } else {
+        emojiImg = window[props.like.emoji_type.toLowerCase()];
+      }
+    } else {
+      emojiImg = window.likeIcon;
+    }
+    
     this.state = {
       btnKlass: "",
       editFormKlass: "",
       likeBoxKlass: "",
-      deleted: null,
-      emoji: "",
-      like: "",
-      love: "",
-      haha: "",
-      angry: "",
-      sad: "",
-      wow: "",
-      likeCounts: this.props.post.likes ? Object.keys(this.props.post.likes).length : 0,
-      likeClass: this.props.post.likes ? "active" : "",
-      liked: null
+      emojiImg,
+      emojiText: props.like ? props.like.emoji_type : "Like",
+      emojiColor,
+      likeCount: props.post.like_ids.length > 0 ? props.post.like_ids.length : 0,
+      likeClass: props.post.like_ids.length > 0 ? "active" : ""
     };
 
     this.createLike = this.createLike.bind(this);
     this.deleteLike = this.deleteLike.bind(this);
     this.openLikeBox = this.openLikeBox.bind(this);
     this.closeLikeBox = this.closeLikeBox.bind(this);
+    this.handleEmojiClick = this.handleEmojiClick.bind(this);
     this.dropdownOpen = this.dropdownOpen.bind(this);
     this.dropdownClose = this.dropdownClose.bind(this);
     this.deletePost = this.deletePost.bind(this);
   }
 
-  componentDidMount() {
-    if (this.props.post.likes && this.props.post.likes[this.props.currentUser.id]) {
-      this.setState({ liked: this.deleteLike });
-    } else {
-      this.setState({ liked: this.createLike });
-    }
-  }
-
-
-  createLike() {
-        let like = {
-          like: {
-            user_id: this.props.currentUser.id,
-            likeable_id: this.props.post.id,
-            emoji_type: "like",
-            likeable_type: "Post",
-          },
-        };
-
-        this.props.createLike(like);
-    this.setState({ likeCounts: Object.keys(this.props.post.likes).length + 1, liked: this.deleteLike });
-  }
-
-  deleteLike() {
+  createLike(emoji) {
     let like = {
       like: {
         user_id: this.props.currentUser.id,
         likeable_id: this.props.post.id,
-        emoji_type: "like",
+        emoji_type: emoji,
         likeable_type: "Post",
-        id: this.props.post.likes[this.props.currentUser.id].id
       },
     };
 
+    if (this.props.like) this.deleteLike(emoji);
+    this.props.createLike(like);
+  }
+
+  deleteLike(emoji) {
+    let like = {
+      like: {
+        user_id: this.props.currentUser.id,
+        likeable_id: this.props.post.id,
+        emoji_type: emoji,
+        likeable_type: "Post",
+        id: this.props.like.id
+      },
+    };
+    
     this.props.deleteLike(like);
-    this.setState({ likeCounts: Object.keys(this.props.post.likes).length - 1, liked: this.createLike });
+  }
+
+  renderLike() {
+    return (
+      <>
+        <img className="like-emoji-img" src={this.state.emojiImg} />
+        <p className="like-comment-p" style={{color: this.state.emojiColor}}>
+          {this.state.emojiText}
+        </p>
+      </>
+    );
+  }
+
+  renderLikeCount() {
+    if (this.props.post.like_ids.length > 0) {
+      const namesArr = [];
+      const emojiArr = [];
+      let names;
+      let currentUser = false;
+
+      this.props.likes.forEach(like => {
+        if (like.user_id === this.props.currentUser.id) {
+          currentUser = true;
+        } else {
+          namesArr.push(`${like.first_name} ${like.last_name}`);
+          if (!emojiArr.includes(like.emoji_type)) emojiArr.push(like.emoji_type);
+        }
+      });
+
+      if (currentUser) {
+        const { first_name, last_name } = this.props.currentUser;
+        namesArr.push(`${first_name} ${last_name}`);
+        if (!emojiArr.includes(this.props.like.emoji_type)) emojiArr.push(this.props.like.emoji_type);
+      };
+
+      if (namesArr.length > 2) {
+        names = namesArr.reverse()[0] + ` and ${namesArr.length - 1} others`
+      } else if (namesArr.length === 2) {
+        names = namesArr.reverse().join(" and ");
+      } else {
+        names = namesArr[0];
+      }
+
+      const emojis = emojiArr.reverse().map((emoji, i) => {
+        return <img key={i} src={window[emoji.toLowerCase()]}></img>;
+      });
+
+      return (
+        <div className="liked-list">
+          <div className="liked-emoji-list">{emojis}</div>
+          <p>{names}</p>
+        </div>
+      )
+    } else {
+      return <></>;
+    }
   }
 
   openLikeBox() {
@@ -77,9 +149,57 @@ export default class PostItems extends React.Component {
     this.setState({ likeBoxKlass: "" });
   }
 
+  handleEmojiClick(emoji) {
+    return e => {
+      let img;
+      switch (emoji) {
+        case "Like":
+          img = window.likedIcon;
+          this.setState({ emojiColor: "#2078F4" });
+          break;
+        case "Love":
+          img = window.love;
+          this.setState({ emojiColor: "#F33E58" });
+          break;
+        case "Haha":
+          img = window.haha;
+          this.setState({ emojiColor: "#F7B125" });
+          break;
+        case "Angry":
+          img = window.angry;
+          this.setState({ emojiColor: "#E9710F" });
+          break;
+        case "Sad":
+          img = window.sad;
+          this.setState({ emojiColor: "#F7B125" });
+          break;
+        case "Wow":
+          img = window.wow;
+          this.setState({ emojiColor: "#F7B125" });
+          break;
+      }
+      
+      if (e.currentTarget.className === "post-like") {
+
+        if (this.props.like) {
+          this.setState({ emojiImg: window.likeIcon, emojiText: "Like" });
+          this.deleteLike(emoji);
+          this.setState({ emojiColor: "" });
+        } else {
+          this.setState({ emojiImg: img, emojiText: emoji });
+          this.createLike(emoji);
+        }
+      } else {
+        this.setState({ emojiImg: img, emojiText: emoji });
+        this.createLike(emoji);
+      }
+    }
+  }
+
   deletePost(postId) {
     return (e) => {
       this.props.deletePost(postId);
+      this.dropdownClose(e);
     };
   }
 
@@ -153,7 +273,9 @@ export default class PostItems extends React.Component {
             </div>
           </div>
           <Link to={link}>
-            <img src={`${image}`} />
+            <div className="post-item-profile-img">
+              <img src={`${image}`} />
+            </div>
           </Link>
           <div className="post-name-date">
             <Link to={link}>
@@ -165,43 +287,48 @@ export default class PostItems extends React.Component {
           </div>
         </div>
         <p className={"post-body"}>{this.props.post.body}</p>
-        {/* <p className={`like-counts ${this.state.likeClass}`}>{this.state.likeCounts} likes</p> */}
+        {this.renderLikeCount()}
         <hr />
         <div
           className={`like-box ${this.state.likeBoxKlass}`}
           onMouseOver={this.openLikeBox}
           onMouseOut={this.closeLikeBox}
         >
-          <img src={window.like} />
-          <img src={window.love} />
-          <img src={window.haha} />
-          <img src={window.angry} />
-          <img src={window.sad} />
-          <img src={window.wow} />
+          <img src={window.like} onClick={this.handleEmojiClick("Like")} />
+          <img src={window.love} onClick={this.handleEmojiClick("Love")} />
+          <img src={window.haha} onClick={this.handleEmojiClick("Haha")} />
+          <img src={window.angry} onClick={this.handleEmojiClick("Angry")} />
+          <img src={window.sad} onClick={this.handleEmojiClick("Sad")} />
+          <img src={window.wow} onClick={this.handleEmojiClick("Wow")} />
         </div>
         <div className="post-like-comment">
           <span
             className="post-like"
-            // onClick={this.state.liked}
             onMouseOver={this.openLikeBox}
             onMouseOut={this.closeLikeBox}
+            onClick={this.handleEmojiClick("Like")}
           >
-            <p className="like-comment-p">
-              <i className="far fa-thumbs-up"></i>Like
-            </p>
+            <span className="like-span">
+              {this.renderLike()}
+            </span>
           </span>
           <span className="post-comment">
-            <p className="like-comment-p">
-              <i className="far fa-comment-alt"></i>Comment
-            </p>
+            <span className="comment-span">
+              <p><i className="far fa-comment-alt"></i></p>
+              <p className="like-comment-p">
+                Comment
+              </p>
+            </span>
           </span>
         </div>
         <hr />
         {comments}
         <div className="post-comment-box">
-          <Link to={currentLink}>
-            <img src={currentImg} />
-          </Link>
+          <div className="post-comment-box-img">
+            <Link to={currentLink}>
+              <img src={currentImg} />
+            </Link>
+          </div>
           <div className="post-comment-box-msg">
             <textarea placeholder="Write a comment..." />
             <p className="comment-msg-p">Press Enter to post.</p>

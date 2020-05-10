@@ -8,6 +8,7 @@
 
 User.destroy_all
 Post.destroy_all
+Like.destroy_all
 
 user1 = User.create!(email: "jyjseong@gmail.com", password: "123456", first_name: "june", last_name: "seong", birth_date: DateTime.new(1993,6,25), gender: "F", school: "App Academy", work: "App Academy", bio: "Hello World!", city: "Flushing", state: "New York")
 user2 = User.create!(email: "ken@gmail.com", password: "123456", first_name: "ken", last_name: "ting", birth_date: DateTime.new(1993,9,15), gender: "M")
@@ -19,8 +20,18 @@ user3.profile_img.attach(io:open("https://pacebook-seed.s3.amazonaws.com/image/h
 user2.profile_img.attach(io:open("https://pacebook-seed.s3.amazonaws.com/image/ken.jpg"), filename:"ken.jpg")
 user5.profile_img.attach(io:open("https://pacebook-seed.s3.amazonaws.com/image/koba.jpg"), filename:"koba.jpg")
 user5.cover_img.attach(io:open("https://pacebook-seed.s3.amazonaws.com/image/koba.jpg"), filename:"koba.jpg")
+user1.profile_img.attach(io:open("https://pacebook-seed.s3.amazonaws.com/image/image.jpg"), filename:"june.jpg")
 
-post1 = Post.create!(body: "hello world!", user_id: user4.id, receiver_id: user4.id)
-post2 = Post.create!(body: "I love Koba", user_id: user2.id, receiver_id: user1.id)
-post3 = Post.create!(body: "hi :)", user_id: user3.id, receiver_id: user1.id)
-post4 = Post.create!(body: "woof!", user_id: user5.id, receiver_id: user2.id)
+post3 = Post.create!(body: "hello world!", user_id: user1.id, receiver_id: user1.id)
+post2 = Post.create!(body: "hey haejun.", user_id: user4.id, receiver_id: user3.id)
+post1 = Post.create!(body: "good boy!", user_id: user2.id, receiver_id: user5.id)
+post4 = Post.create!(body: "hi :)", user_id: user3.id, receiver_id: user4.id)
+post5 = Post.create!(body: "woof!", user_id: user5.id, receiver_id: user2.id)
+
+like1 = Like.create!(likeable_type: "Post", likeable_id: post5.id, emoji_type: "Love", user_id: user2.id)
+like2 = Like.create!(likeable_type: "Post", likeable_id: post3.id, emoji_type: "Like", user_id: user2.id)
+like3 = Like.create!(likeable_type: "Post", likeable_id: post3.id, emoji_type: "Like", user_id: user3.id)
+like4 = Like.create!(likeable_type: "Post", likeable_id: post3.id, emoji_type: "Wow", user_id: user4.id)
+like5 = Like.create!(likeable_type: "Post", likeable_id: post1.id, emoji_type: "Love", user_id: user5.id)
+like6 = Like.create!(likeable_type: "Post", likeable_id: post4.id, emoji_type: "Like", user_id: user4.id)
+like7 = Like.create!(likeable_type: "Post", likeable_id: post5.id, emoji_type: "Haha", user_id: user1.id)

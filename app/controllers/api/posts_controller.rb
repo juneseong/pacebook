@@ -7,6 +7,7 @@ class Api::PostsController < ApplicationController
         if params[:user_id].nil?
             @users = []
             @posts = Post.all.order(updated_at: :desc)
+
             @posts.each do |post|
                 @post_ids << post.id
                 @users << post.user

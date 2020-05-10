@@ -13,19 +13,18 @@ export default class Newsfeed extends React.Component {
 
     render() {
         let posts;
-        
+
         if (this.props.posts.length > 0) {
-            posts = this.props.posts.map((post, i) => 
-                        <PostItemsContainer 
-                            key={i} 
-                            post={post} 
-                            posts={this.props.posts} 
-                            currentUser={this.props.currentUser} 
-                            // user={post.user} 
-                            />
-                    );
+            posts = this.props.posts.map(post => 
+                <PostItemsContainer
+                    key={post.id}
+                    post={post}
+                    posts={this.props.posts}
+                    currentUser={this.props.currentUser}
+                />
+            );
         } else {
-            posts = <p>Loading...</p>;
+            posts = <></>;
         }
 
         return (
@@ -55,13 +54,13 @@ export default class Newsfeed extends React.Component {
                     </ul>
                 </div>
                 <div className="newsfeed-post-container">
-                <PostFormContainer user={this.props.currentUser} currentUser={this.props.currentUser} />
+                    <PostFormContainer user={this.props.currentUser} currentUser={this.props.currentUser} />
                     <div className="newsfeed-posts">
                         {posts}
                     </div>
                 </div>
                 <div className="newsfeed-right">
-                    <div className="newsfeed-right-content"> 
+                    <div className="newsfeed-right-content">
                         <ul>
                             <li>
                                 <img src="https://img.icons8.com/color/48/000000/birthday.png" />
@@ -86,9 +85,9 @@ export default class Newsfeed extends React.Component {
                                 </nav>
                                 <nav className="app-ad-text">
                                     <p>
-                                        The Top Ranked Code Bootcamp By Employers. 
-                                        Free Until You're Hired As A Developer. 
-                                        Learn Full-Stack Development In 16 Weeks. 
+                                        The Top Ranked Code Bootcamp By Employers.
+                                        Free Until You're Hired As A Developer.
+                                        Learn Full-Stack Development In 16 Weeks.
                                     </p>
                                 </nav>
                             </nav>

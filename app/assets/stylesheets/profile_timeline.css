@@ -92,10 +92,15 @@
     padding: 12px 12px 0 12px;
 }
 
-.profile-post-items img {
+.post-item-profile-img {
     width: 40px;
     height: 40px;
     border-radius: 50%;
+    overflow: hidden;
+}
+
+.profile-post-items img {
+    width: 40px;
 }
 
 .post-img-name-date {
@@ -117,8 +122,9 @@ p.post-name-p:hover {
 }
 
 p.post-body {
-    font-size: 18px;
+    font-size: 17px;
     color: #1c1e21;
+    margin: 14px 0 12px 0;
 }
 
 .post-like-comment {
@@ -136,7 +142,7 @@ p.post-body {
     margin: 5px 0;
 }
 
-.post-like-comment span:hover {
+.post-like-comment > span:hover {
     background-color: rgba(0, 0, 0, .05);
     border-radius: 2px;
     cursor: pointer;
@@ -152,8 +158,62 @@ p.post-body {
     width: 50%;
 }
 
+.post-like img.like-emoji-img {
+    width: 30px;
+    height: 30px;
+}
+
 p.like-comment-p {
-    margin: 5px auto;
+    margin: 0;
+    padding-top: 8px;
+}
+
+.liked-list {
+    display: flex;
+}
+
+.liked-list p {
+    margin: 0;
+    line-height: 30px;
+}
+
+.liked-emoji-list img {
+    width: 30px;
+    height: 30px;
+}
+
+.liked-emoji-list img:first-child {
+    margin-left: -5px;
+}
+
+.liked-emoji-list img:nth-child(2) {
+    margin-left: -12px;
+}
+
+.liked-emoji-list img:nth-child(3) {
+    margin-left: -12px;
+}
+
+.liked-emoji-list img:nth-child(4) {
+    margin-left: -12px;
+}
+
+.liked-emoji-list img:nth-child(5) {
+    margin-left: -12px;
+}
+
+.liked-emoji-list img:nth-child(6) {
+    margin-left: -12px;
+}
+
+.comment-span p {
+    margin: 0;
+    padding-top: 8px;
+}
+
+
+.post-like-comment .like-span, .post-like-comment .comment-span {
+    margin: 0 auto;
 }
 
 .post-comment-box {
@@ -163,13 +223,20 @@ p.like-comment-p {
 }
 
 .post-comment-box-msg {
-    margin-left: 10px;
-    width: 100%;
+    width: 90%;
+    float: right;
 }
 
 .post-comment-box img {
     width: 32px;
+}
+
+.post-comment-box-img {
+    border-radius: 50%;
+    overflow: hidden;
+    width: 32px;
     height: 32px;
+    margin-right: 6px;
 }
 
 .post-comment-box textarea {

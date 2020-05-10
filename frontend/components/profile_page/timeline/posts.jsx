@@ -8,7 +8,7 @@ export default class Posts extends React.Component {
 
         if (this.props.posts.length > 0 && this.props.posts[0] !== undefined) {
             posts = this.props.posts.map((post, i) => 
-            <PostItemsContainer key={i} post={post} posts={this.props.posts} currentUser={this.props.currentUser} users={this.props.users} />);
+            <PostItemsContainer key={post.id} post={post} posts={this.props.posts} currentUser={this.props.currentUser} users={this.props.users} />);
         } else {
             posts = "";
         }

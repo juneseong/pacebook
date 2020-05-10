@@ -11,7 +11,7 @@
 #  updated_at    :datetime         not null
 #
 class Like < ApplicationRecord
-    EMOJIS = ["like", "love", "haha", "yay", "wow", "sad", "angry"]
+    EMOJIS = ["Like", "Love", "Haha", "Yay", "Wow", "Sad", "Angry"]
     validates :user_id, presence: true
     validates :emoji_type, inclusion: { in: EMOJIS }
 

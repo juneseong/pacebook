@@ -3,14 +3,14 @@ import * as LikeUtils from "../util/like_api_util";
 export const RECEIVE_LIKE = "RECEIVE_LIKE";
 export const REMOVE_LIKE = "REMOVE_LIKE";
 
-export const receiveLike = ({ likes }) => ({
+export const receiveLike = like => ({
     type: RECEIVE_LIKE,
-    likes
+    like
 });
 
-export const removeLike = ({ likes }) => ({
+export const removeLike = like => ({
     type: REMOVE_LIKE,
-    likes
+    like
 });
 
 export const createLike = like => dispatch => (
@@ -19,4 +19,4 @@ export const createLike = like => dispatch => (
 
 export const deleteLike = likeId => dispatch => (
     LikeUtils.deleteLike(likeId).then(like => dispatch(removeLike(like)))
-)
+);

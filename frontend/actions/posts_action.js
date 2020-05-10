@@ -12,9 +12,9 @@ const receiveAllPosts = ({ posts, users, post_ids, likes }) => ({
   likes
 });
 
-const receivePost = (post) => ({
+const receivePost = post => ({
   type: RECEIVE_POST,
-  post,
+  post
 });
 
 const removePost = ({ post }) => ({
