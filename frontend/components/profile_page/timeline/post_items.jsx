@@ -252,6 +252,26 @@ export default class PostItems extends React.Component {
     }
   }
 
+  renderReceiverName() {
+    if (this.props.post.user_id !== this.props.post.receiver_id) {
+
+      const first_name = this.props.receiver.first_name;
+      const last_name = this.props.receiver.last_name;
+      const link = `/users/${this.props.receiver.id}`;
+
+      return (
+        <>
+          <i className="fas fa-play"></i>
+          <Link to={link}>
+            <p className="post-name-p">
+              {first_name} {last_name}
+            </p>
+          </Link>
+        </>
+      )
+    }
+  }
+
   render() {
     if (!this.props.post) return null;
 
@@ -310,11 +330,14 @@ export default class PostItems extends React.Component {
             </div>
           </Link>
           <div className="post-name-date">
-            <Link to={link}>
-              <p className="post-name-p">
-                {first_name} {last_name}
-              </p>
-            </Link>
+            <div className="post-names">
+              <Link to={link}>
+                <p className="post-name-p">
+                  {first_name} {last_name}
+                </p>
+              </Link>
+              {this.renderReceiverName()}
+            </div>
             <p className="post-date-p">{this.props.post.created_at}</p>
           </div>
         </div>

@@ -11,6 +11,8 @@ class Api::PostsController < ApplicationController
             @posts.each do |post|
                 @post_ids << post.id
                 @users << post.user
+                receiver = User.find_by(id: post.receiver_id)
+                @users << receiver if !@users.include?(receiver)
             end
         else
             user = User.find(params[:user_id])

@@ -26,6 +26,7 @@ const mapStateToProps = (state, ownProps) => {
 
     return ({
         user: ownProps.post ? users[ownProps.post.user_id] : null,
+        receiver: ownProps.post ? users[ownProps.post.receiver_id] : null,
         like: myLike,
         likes: filteredLikes,
         comments: filteredComments,
