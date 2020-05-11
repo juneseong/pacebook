@@ -2,13 +2,15 @@ class Api::CommentsController < ApplicationController
     before_action :ensure_logged_in
     def show
         @comment = Comment.find(params[:id])
+        @user = comment.user
     end
 
     def create
         @comment = Comment.new(comment_params)
+        @comment.post_id = params[:post_id]
+        @comment.user = current_user
 
         if @comment.save
-            @user = @comment.user
             render :show
         end
     end
@@ -25,6 +27,7 @@ class Api::CommentsController < ApplicationController
 
     private
     def comment_params
-        params.require(:comment).permit(:body)
+        params.require(:comment).permit(:body, :post_id)
+        
     end
 end

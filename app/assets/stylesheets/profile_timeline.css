@@ -124,7 +124,7 @@ p.post-name-p:hover {
 p.post-body {
     font-size: 17px;
     color: #1c1e21;
-    margin: 14px 0 12px 0;
+    margin: 16px 0 14px 0;
 }
 
 .post-like-comment {
@@ -227,11 +227,11 @@ p.like-comment-p {
     float: right;
 }
 
-.post-comment-box img {
+.post-comment-box img, .comment-items img {
     width: 32px;
 }
 
-.post-comment-box-img {
+.post-comment-box-img, .comment-item-img {
     border-radius: 50%;
     overflow: hidden;
     width: 32px;
@@ -352,4 +352,84 @@ p.comment-msg-p {
 
 .like-counts {
     display: none;
+}
+
+.post-comment-box-msg textarea {
+    white-space: nowrap;
+    overflow-x: hidden;
+}
+
+.comment-items {
+    color: #1c1e21;
+    font-size: 13px;
+}
+
+.comment-items ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.comment-items li {
+    margin-top: 4px;
+    padding: 4px 0;
+}
+
+.comment-item {
+    display: flex;
+}
+
+.comment-item-name-body {
+    max-width: 410px;
+    box-sizing: border-box;
+    background-color: #f2f3f5;
+    padding: 8px 10px;
+    border-radius: 18px;
+    word-break: break-word;
+}
+
+.comment-item-name {
+    font-weight: bold;
+    display: inline-block;
+    color: #385898;
+    cursor: pointer;
+    margin-right: 4px;
+}
+
+.comment-item-name:hover {
+    text-decoration: underline;
+}
+
+.comment-item-like-delete {
+    padding-left: 10px;
+    color: #385898;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.like-delete:hover {
+    text-decoration: underline;
+}
+
+.comment-like-count {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .2);
+    color: #8d949e;
+    font-size: 11px;
+    font-weight: normal;
+    padding: 2px 1px 2px 2px;
+    float: right;
+    margin-top: -18px;
+    margin-right: -35px;
+    display: flex;
+}
+
+.comment-like-count img {
+    width: 17px;
+}
+
+.comment-like-count-num {
+    padding: 2px;
+    height: 5px;
 }

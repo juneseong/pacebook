@@ -1,5 +1,6 @@
 import { RECEIVE_ALL_POSTS, RECEIVE_POST, REMOVE_POST } from '../actions/posts_action';
 import { REMOVE_LIKE, RECEIVE_LIKE } from '../actions/likes_action';
+import { RECEIVE_COMMENT, REMOVE_COMMENT } from "../actions/comments_action";
 
 const PostsReducer = (oldState = { post_ids: [] }, action) => {
     Object.freeze(oldState);
@@ -21,18 +22,39 @@ const PostsReducer = (oldState = { post_ids: [] }, action) => {
             delete nextState[action.post.id];
             return nextState;
         case RECEIVE_LIKE:
-            tempState = Object.assign({}, oldState);
-            postId = action.like.likeable_id;
-            userId = action.like.user_id;
-            tempState[postId].like_ids.push(action.like.id);
-            return Object.assign({}, oldState, tempState);
+            if (action.like.likeable_type === "Post") {
+                tempState = Object.assign({}, oldState);
+                postId = action.like.likeable_id;
+                userId = action.like.user_id;
+                tempState[postId].like_ids.push(action.like.id);
+                return Object.assign({}, oldState, tempState);
+            }
         case REMOVE_LIKE:
-            tempState = Object.assign({}, oldState);
-            postId = action.like.likeable_id;
-            userId = action.like.user_id;
-            targetIdx = tempState[postId].like_ids.indexOf(action.like.id);
-            tempState[postId].like_ids.splice(targetIdx, 1);
-            return tempState;
+            if (action.like.likeable_type === "Post") {
+                tempState = Object.assign({}, oldState);
+                postId = action.like.likeable_id;
+                userId = action.like.user_id;
+                targetIdx = tempState[postId].like_ids.indexOf(action.like.id);
+                tempState[postId].like_ids.splice(targetIdx, 1);
+                return tempState;
+            }
+        case RECEIVE_COMMENT:
+            if (action.type === "RECEIVE_COMMENT") {
+                tempState = Object.assign({}, oldState);
+                postId = action.comment.post_id;
+                userId = action.comment.user_id;
+                tempState[postId].comment_ids.push(action.comment.id);
+                return Object.assign({}, oldState, tempState);
+            }
+        case REMOVE_COMMENT:
+            if (action.type === "REMOVE_COMMENT") {
+                tempState = Object.assign({}, oldState);
+                postId = action.comment.comment.post_id;
+                userId = action.comment.comment.user_id;
+                targetIdx = tempState[postId].comment_ids.indexOf(action.comment.id);
+                tempState[postId].comment_ids.splice(targetIdx, 1);
+                return tempState;
+            }
         default:
             return oldState;
     }

@@ -8,7 +8,6 @@ json.school user.school ? user.school.split(" ").map(&:capitalize).join(" ") : u
 json.work user.work ? user.work.split(" ").map(&:capitalize).join(" ") : user.work
 
 received_post_ids = user.received_posts.order(updated_at: :desc).pluck(:id)
-# user.received_posts.includes(:id).order(updated_at: :desc).each { |post| received_post_ids << post[:id] }
 json.received_post_ids received_post_ids
 
 json.birth_date user.birth_date.strftime("%-B %-d, %-Y")

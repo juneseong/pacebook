@@ -44,7 +44,8 @@ export default class PostItems extends React.Component {
       emojiText: props.like ? props.like.emoji_type : "Like",
       emojiColor,
       likeCount: props.post.like_ids.length > 0 ? props.post.like_ids.length : 0,
-      likeClass: props.post.like_ids.length > 0 ? "active" : ""
+      likeClass: props.post.like_ids.length > 0 ? "active" : "",
+      commentBody: ""
     };
 
     this.createLike = this.createLike.bind(this);
@@ -55,6 +56,11 @@ export default class PostItems extends React.Component {
     this.dropdownOpen = this.dropdownOpen.bind(this);
     this.dropdownClose = this.dropdownClose.bind(this);
     this.deletePost = this.deletePost.bind(this);
+    this.commentTextarea = React.createRef();
+    this.focusCommentTextarea = this.focusCommentTextarea.bind(this);
+    this.update = this.update.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.renderCommentItems = this.renderCommentItems.bind(this);
   }
 
   createLike(emoji) {
@@ -220,6 +226,32 @@ export default class PostItems extends React.Component {
     this.setState({ btnKlass: "" });
   }
 
+  focusCommentTextarea() {
+    this.commentTextarea.current.focus();
+  }
+
+  update(e) {
+    this.setState({ commentBody: e.currentTarget.value });
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    const comment = {
+      comment: {
+        body: this.state.commentBody,
+      }
+    }
+
+    this.props.createComment(this.props.post.id, comment);
+    this.setState({ commentBody: "" });
+  }
+
+  renderCommentItems() {
+    if (this.props.comments.length > 0) {
+      return <CommentItems comments={this.props.comments} currentUser={this.props.currentUser} />;
+    }
+  }
+
   render() {
     if (!this.props.post) return null;
 
@@ -312,7 +344,7 @@ export default class PostItems extends React.Component {
               {this.renderLike()}
             </span>
           </span>
-          <span className="post-comment">
+          <span className="post-comment" onClick={this.focusCommentTextarea}>
             <span className="comment-span">
               <p><i className="far fa-comment-alt"></i></p>
               <p className="like-comment-p">
@@ -323,6 +355,7 @@ export default class PostItems extends React.Component {
         </div>
         <hr />
         {comments}
+        {this.renderCommentItems()}
         <div className="post-comment-box">
           <div className="post-comment-box-img">
             <Link to={currentLink}>
@@ -330,7 +363,13 @@ export default class PostItems extends React.Component {
             </Link>
           </div>
           <div className="post-comment-box-msg">
-            <textarea placeholder="Write a comment..." />
+            <textarea 
+              ref={this.commentTextarea} 
+              placeholder="Write a comment..." 
+              value={this.state.commentBody} 
+              onChange={this.update} 
+              onKeyDown={e => {if (e.key === "Enter") this.handleSubmit(e);}}
+            />
             <p className="comment-msg-p">Press Enter to post.</p>
           </div>
         </div>
