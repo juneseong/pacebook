@@ -20,7 +20,6 @@
 .newsfeed-container p {
     font-size: 12px;
     line-height: 16px;
-    -webkit-font-smoothing: antialiased;
     color: #616770;
 }
 

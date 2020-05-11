@@ -43,14 +43,24 @@ export default class Newsfeed extends React.Component {
                     </ul>
                     <p className="p-header"><b>Explore</b></p>
                     <ul className="newsfeed-ul">
-                        <li>
-                            <img src="https://img.icons8.com/ios-filled/64/000000/github.png" />
-                            <h3>Github</h3>
-                        </li>
-                        <li>
-                            <img src="https://img.icons8.com/ios-filled/50/000000/linkedin.png" />
-                            <h3>LinkedIn</h3>
-                        </li>
+                        <a href="https://github.com/juneseong" target="_blank">
+                            <li>
+                                <img src="https://img.icons8.com/ios-filled/64/000000/github.png" />
+                                <h3>Github</h3>
+                            </li>
+                        </a>
+                        <a href="https://www.linkedin.com/in/juneseong" target="_blank">
+                            <li>
+                                <img src="https://img.icons8.com/ios-filled/50/000000/linkedin.png" />
+                                <h3>LinkedIn</h3>
+                            </li>
+                        </a>
+                        <a href="https://angel.co/u/june-seong" target="_blank">
+                            <li>
+                                <img src="https://img.icons8.com/ios/50/000000/angelist.png" />
+                                <h3>AngelList</h3>
+                            </li>
+                        </a>
                     </ul>
                 </div>
                 <div className="newsfeed-post-container">

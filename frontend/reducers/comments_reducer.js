@@ -20,7 +20,7 @@ export default (state = {}, action) => {
             tempState = {};
 
             Object.entries(state).forEach(([key, comment]) => {
-                if (comment.post.id !== action.post.id) {
+                if (comment.post_id !== action.post.id) {
                     tempState[comment.id] = comment;
                 }
             });
