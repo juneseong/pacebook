@@ -33,7 +33,7 @@ hr {
     border: 0.5px solid #ddd;
 }
 
-button {
+button, input {
     outline: none;
 }
 

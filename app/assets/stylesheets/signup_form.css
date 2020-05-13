@@ -93,33 +93,74 @@
 }
 
 .signup-error-msg {
-    display: none; 
     background-color: #be4b49;
     color: white;
     box-shadow: 0 0 0 1px rgba(139, 3, 0, .75), 0 1px 10px rgba(0, 0, 0, .35);
     font-size: 13px;
     max-width: 300px;
-    padding: 10px;
+    padding: 13px 12px;
     -webkit-font-smoothing: subpixel-antialiased;
     border-radius: 2px;
-    margin-top: 10px;
-}
-
-.signup-error-msg-container ul {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-}
-
-.signup-error-msg li {
-    display: block;
+    
 }
 
 .signup-error-msg-container {
-    width: 200px;
-    float: right;
-    right: 0;
-    position: relative;
+    display: none; 
+    position: absolute;
+}
+
+.signup-error-msg-container.active {
+    display: block;
+    z-index: 100;
+}
+
+.signup-error-msg-tip {
+    width: 13px;
+    height: 13px;
+    background-color: #be4b49;
+    transform: rotate(45deg);
+    position: absolute;
+    right: -6px;
+    top: 14px;
+    z-index: 200;
+    border-radius: 1px;
+}
+
+.signup-error-msg-tip.last-name {
+    top: -6px;
+    left: 15px;
+}
+
+.signup-error-msg-tip.email, .signup-error-msg-tip.password {
+    top: 18px;
+}
+
+.signup-error-msg-tip.shadow {
+    box-shadow: 0 0 0 1px rgba(139, 3, 0, .75), 0 1px 10px rgba(0, 0, 0, .35);
+    z-index: -1;
+}
+
+.error-first-name {
+    margin-left: -157px;
+}
+
+.error-last-name {
+    margin-left: 205px;
+    margin-top: 56px;
+}
+
+.error-email {
+    margin-left: -345px;
+    margin-top: -5px;
+}
+
+.error-password {
+    margin-left: -345px;
+    margin-top: -5px;
+}
+
+.error-gender {
+    margin-left: -173px;
 }
 
 .signup-description {
@@ -225,8 +266,12 @@ i.fas.fa-exclamation-circle.first-name {
     margin-left: 162px;
 }
 
-i.fas.fa-exclamation-circle.last-name, i.fas.fa-exclamation-circle.email, i.fas.fa-exclamation-circle.password {
+i.fas.fa-exclamation-circle.last-name, i.fas.fa-exclamation-circle.email, i.fas.fa-exclamation-circle.password, i.fas.fa-exclamation-circle.gender {
     margin-left: 365px;
+}
+
+i.fas.fa-exclamation-circle.gender {
+    margin-top: 0;
 }
 
 i.fas.fa-exclamation-circle.error-active {

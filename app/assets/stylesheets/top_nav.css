@@ -85,6 +85,28 @@ i.fab.fa-facebook-f {
     border: 1px solid #3b5998;
 }
 
+.search-bar-li {
+    position: relative;
+}
+
+.search-icon {
+    position: absolute;
+    right: 0;
+    background-color: #f5f6f7;
+    height: 24px;
+    padding: 0 16px;
+    margin-top: 1px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+i.fas.fa-search {
+    font-size: 14px;
+    margin: 0;
+    padding-top: 5px;
+    color: #4b4f56;
+}
+
 .logout-dropdown {
     display: none;
     background-color: white;

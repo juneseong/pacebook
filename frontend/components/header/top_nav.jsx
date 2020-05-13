@@ -35,7 +35,10 @@ class TopNav extends React.Component {
                 <div className="top-nav">
                     <ul>
                         <Link to="/"><li><i className="fab fa-facebook-f"></i></li></Link>
-                        <li><input type="text" className="search-bar" placeholder="Search"/></li>
+                        <li className="search-bar-li">
+                            <div className="search-icon"><i className="fas fa-search"></i></div>
+                            <input type="text" className="search-bar" placeholder="Search"/>
+                        </li>
                     </ul>
 
                     <ul>

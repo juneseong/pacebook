@@ -79,16 +79,17 @@
 
 .login-error-msg {
     display: none;
-    float: left;
     background-color: #be4b49;
     color: white;
     box-shadow: 0 0 0 1px rgba(139, 3, 0, .75), 0 1px 10px rgba(0, 0, 0, .35);
     font-size: 13px;
     max-width: 300px;
-    padding: 10px;
+    padding: 13px;
     -webkit-font-smoothing: subpixel-antialiased;
     border-radius: 2px;
-    margin-top: 10px;
+    margin-top: 5px;
+    margin-left: -205px;
+    position: absolute;
 }
 
 .login-error-msg ul {
