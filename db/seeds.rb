@@ -40,7 +40,7 @@ like8 = Like.create!(likeable_type: "Post", likeable_id: post5.id, emoji_type: "
 comment1 = Comment.create!(body: "hi :)", user_id: user2.id, post_id: post4.id)
 comment2 = Comment.create!(body: "hi :)", user_id: user4.id, post_id: post4.id)
 comment3 = Comment.create!(body: "what a cute dog!", user_id: user1.id, post_id: post5.id)
-comment4 = Comment.create!(body: "woahh how do you guys know each other?", user_id: user1.id, post_id: post2.id)
+comment4 = Comment.create!(body: "woah, how do you guys know each other?", user_id: user2.id, post_id: post2.id)
 
 like9 = Like.create!(likeable_type: "Comment", likeable_id: comment1.id, emoji_type: "Like", user_id: user3.id)
 like10 = Like.create!(likeable_type: "Comment", likeable_id: comment2.id, emoji_type: "Like", user_id: user1.id)
