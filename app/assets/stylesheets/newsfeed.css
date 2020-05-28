@@ -7,7 +7,7 @@
 
 .newsfeed-container h3 {
     font-size: 13px;
-    line-height: 28px;
+    line-height: 24px;
     -webkit-font-smoothing: antialiased;
     color: #1d2129;
     margin: 0;
@@ -48,8 +48,8 @@
 }
 
 .newsfeed-left img {
-    width: 24px;
-    height: 24px;
+    width: 23px;
+    height: 23px;
     padding-left: 2px;
 }
 
@@ -80,6 +80,10 @@ li.newsfeed-li {
     border-radius: 2px;
 }
 
+li.portfolio-li {
+    border: 1px solid #edf0f5;
+}
+
 .newsfeed-left ul li:hover {
     background-color: #f5f6f7;
     border: 1px solid #dddfe2;
@@ -91,7 +95,7 @@ li.newsfeed-li {
 }
 
 .newsfeed-right-content {
-    padding: 12px;
+    padding: 8px 12px;
     background-color: white;
     border: 1px solid #dddfe2;
     border-radius: 3px;

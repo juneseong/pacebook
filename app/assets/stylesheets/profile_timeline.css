@@ -403,9 +403,12 @@ p.comment-msg-p {
 .comment-item-name {
     font-weight: bold;
     display: inline-block;
-    color: #385898;
     cursor: pointer;
     margin-right: 4px;
+}
+
+.comment-item-name a {
+    color: #385898;
 }
 
 .comment-item-name:hover {

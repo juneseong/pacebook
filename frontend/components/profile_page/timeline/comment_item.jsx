@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default class CommentItem extends React.Component {
     constructor(props) {
@@ -82,12 +83,12 @@ export default class CommentItem extends React.Component {
         return (
             <div className="comment-item">
                 <div className="comment-item-img">
-                    <img src={image} />
+                    <Link to={`users/${this.props.comment.user_id}`}><img src={image} /></Link>
                 </div>
                 <div>
                     <div className="comment-item-name-body">
                         <div className="comment-item-name">
-                            {this.props.comment.first_name} {this.props.comment.last_name}
+                            <Link to={`users/${this.props.comment.user_id}`}>{this.props.comment.first_name} {this.props.comment.last_name}</Link>
                         </div>
                         {this.props.comment.body}
                         <div className="comment-like-count-container">{this.renderLikeCount()}</div>

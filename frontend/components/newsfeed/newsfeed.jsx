@@ -1,6 +1,7 @@
 import React from "react";
 import PostItemsContainer from "../profile_page/timeline/post_items_container";
 import PostFormContainer from "../profile_page/timeline/post_form_container";
+import { Link } from "react-router-dom";
 
 export default class Newsfeed extends React.Component {
     constructor(props) {
@@ -36,10 +37,12 @@ export default class Newsfeed extends React.Component {
                             <img src="https://img.icons8.com/color/48/000000/pin3.png" />
                             <h3><b>News Feed</b></h3>
                         </li>
-                        <li>
-                            <img src="https://img.icons8.com/color/48/000000/facebook-messenger.png" />
-                            <h3>Messenger</h3>
-                        </li>
+                        <a href="https://juneseong.com" target="_blank">
+                            <li className="portfolio-li">
+                                <img src="https://img.icons8.com/color/48/000000/folder-invoices.png" />
+                                <h3>Portfolio</h3>
+                            </li>
+                        </a>
                     </ul>
                     <p className="p-header"><b>Explore</b></p>
                     <ul className="newsfeed-ul">
@@ -74,11 +77,7 @@ export default class Newsfeed extends React.Component {
                         <ul>
                             <li>
                                 <img src="https://img.icons8.com/color/48/000000/birthday.png" />
-                                <p className="p-blue">June Seong</p><p>'s birthday is today</p>
-                            </li>
-                            <li>
-                                <img src="https://img.icons8.com/color/48/000000/calendar.png" />
-                                <p className="p-blue">1 event invite</p>
+                                <Link to="/users/72"><p className="p-blue">June Seong</p></Link><p>'s birthday is today</p>
                             </li>
                         </ul>
                     </div>
@@ -87,7 +86,7 @@ export default class Newsfeed extends React.Component {
                             <p>Sponsored</p>
                         </nav>
                         <nav className="app-ad-body">
-                            <p className="p-blue">App Academy</p>
+                            <a href="https://www.appacademy.io" target="_blank"><p className="p-blue">App Academy</p></a>
                             <p>Software training institute</p>
                             <nav className="app-ad-flex">
                                 <nav className="ad-logo">
