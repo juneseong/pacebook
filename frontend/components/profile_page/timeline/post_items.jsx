@@ -381,9 +381,7 @@ export default class PostItems extends React.Component {
         {this.renderCommentItems()}
         <div className="post-comment-box">
           <div className="post-comment-box-img">
-            <Link to={currentLink}>
-              <img src={currentImg} />
-            </Link>
+            <img onClick={this.focusCommentTextarea} src={currentImg} />
           </div>
           <div className="post-comment-box-msg">
             <textarea 
