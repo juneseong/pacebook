@@ -199,6 +199,8 @@ export default class PostItems extends React.Component {
         this.setState({ emojiImg: img, emojiText: emoji });
         this.createLike(emoji);
       }
+
+      this.closeLikeBox();
     }
   }
 
