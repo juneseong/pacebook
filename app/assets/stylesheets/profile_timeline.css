@@ -57,6 +57,71 @@
 
 .profile-intro-bio p {
     text-align: center;
+    word-break: break-word;
+}
+
+.profile-intro-bio form {
+    margin: 8px 0 16px 0;
+    border: 1px solid #ebedf0;
+    background: #f5f6f7;
+    text-align: right;
+}
+
+.profile-intro-bio textarea {
+    outline: none;
+    resize: none;
+    border: none;
+    border-bottom: 1px solid #ebedf0;
+    color: #1d2129;
+    font-size: 12px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 8px 16px;
+    text-align: center;
+    height: 76px;
+}
+
+.profile-intro-bio button {
+    cursor: pointer;
+    margin: 4px;
+    padding: 0 8px;
+    font-weight: bold;
+    line-height: 22px;
+    font-size: 12px;
+    -webkit-font-smoothing: antialiased;
+    border-radius: 2px;
+    transition: background-color 200ms ease-in-out;
+}
+
+button.intro-bio-cancel-btn {
+    margin-right: 0;
+    background-color: #f5f6f7;
+    border-color: #CCD0CD;
+    color: #4B4F5D;
+}
+
+button.intro-bio-cancel-btn:hover {
+    background: #ebedf0;
+    transition: background-color 200ms ease-in-out;
+}
+
+button.intro-bio-save-btn {
+    color: #fff;
+    background-color: #4267b2;
+    border-color: #4267b2;
+}
+
+button.intro-bio-save-btn:hover {
+    background-color: #365899;
+    border-color: #365899;
+    transition: background-color 200ms ease-in-out;
+}
+
+.intro-bio-letter-count {
+    margin: 8px;
+    color: #90949c;
+    font-size: 12px;
+    line-height: 12px;
 }
 
 .profile-photos {

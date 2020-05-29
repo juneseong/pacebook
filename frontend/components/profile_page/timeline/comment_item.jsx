@@ -83,12 +83,12 @@ export default class CommentItem extends React.Component {
         return (
             <div className="comment-item">
                 <div className="comment-item-img">
-                    <Link to={`users/${this.props.comment.user_id}`}><img src={image} /></Link>
+                    <Link to={`/users/${this.props.comment.user_id}`}><img src={image} /></Link>
                 </div>
                 <div>
                     <div className="comment-item-name-body">
                         <div className="comment-item-name">
-                            <Link to={`users/${this.props.comment.user_id}`}>{this.props.comment.first_name} {this.props.comment.last_name}</Link>
+                            <Link to={`/users/${this.props.comment.user_id}`}>{this.props.comment.first_name} {this.props.comment.last_name}</Link>
                         </div>
                         {this.props.comment.body}
                         <div className="comment-like-count-container">{this.renderLikeCount()}</div>

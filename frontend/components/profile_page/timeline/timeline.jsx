@@ -11,7 +11,7 @@ export default class Timeline extends React.Component {
         return (
             <div className="profile-page-container">
                 <div className="profile-body-left">
-                    <Intro user={user} currentUser={currentUser} />
+                    <Intro user={user} currentUser={currentUser} updateUser={this.props.updateUser} />
                     <Photos user={user} currentUser={currentUser} />
                     <Friends user={user} currentUser={currentUser} />
                 </div>

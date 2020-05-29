@@ -12,7 +12,7 @@ class Api::UsersController < ApplicationController
 
     def update
         @user = current_user
-        
+
         if params[:user][:profile_img]
             @user.profile_img.attach(params[:user][:profile_img])
             user_update = @user.save
@@ -37,6 +37,6 @@ class Api::UsersController < ApplicationController
 
     private
     def user_params
-        params.require(:user).permit(:email, :password, :first_name, :last_name, :birth_date, :gender)
+        params.require(:user).permit(:email, :password, :first_name, :last_name, :birth_date, :gender, :bio)
     end
 end
