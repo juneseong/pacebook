@@ -62,12 +62,17 @@ export default class Intro extends React.Component {
             )
         } else {
             let bio = this.state.bio;
+            let color = "";
             const { user, currentUser } = this.props;
-            if (currentUser && user.id === currentUser.id && (!bio || bio === "")) bio = "Add a short bio to tell people more about yourself.";
+            if (currentUser && user.id === currentUser.id && (!bio || bio === "")) {
+                bio = "Add a short bio to tell people more about yourself.";
+            } else {
+                color = "#1d2129";
+            }
 
             return (
                 <>
-                    <p>{bio}</p>
+                    <p style={{color}}>{bio}</p>
                     <p onClick={() => this.setState({updateBio: true})} className="blue-font">{this.state.bioBtn}</p>
                 </>
             );

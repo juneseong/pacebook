@@ -31,13 +31,15 @@
 }
 
 .profile-intro-info i {
-    font-size: 14px;
+    font-size: 15px;
     color: #333;
     width: 12px;
+    line-height: 15px;
 }
 
 .profile-intro-info p {
     display: inline-block;
+    line-height: 15px;
     margin: 0;
 }
 

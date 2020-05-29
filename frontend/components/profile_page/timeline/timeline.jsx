@@ -14,6 +14,7 @@ export default class Timeline extends React.Component {
                     <Intro user={user} currentUser={currentUser} updateUser={this.props.updateUser} />
                     <Photos user={user} currentUser={currentUser} />
                     <Friends user={user} currentUser={currentUser} />
+                    <p className="p-footer">June © 2020</p>
                 </div>
                 <div className="profile-body-right">
                     <PostsContainer user={user} currentUser={currentUser} />
