@@ -31,7 +31,7 @@ export default class Newsfeed extends React.Component {
         return (
             <div className="newsfeed-container">
                 <div className="newsfeed-left">
-                    <p className="p-header"><b>{this.props.currentUser.first_name.toUpperCase()} {this.props.currentUser.last_name.toUpperCase()}</b></p>
+                    <p className="p-header name"><b>{this.props.currentUser.first_name.toUpperCase()} {this.props.currentUser.last_name.toUpperCase()}</b></p>
                     <ul>
                         <li className="newsfeed-li">
                             <img src="https://img.icons8.com/color/48/000000/pin3.png" />

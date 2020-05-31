@@ -1,5 +1,9 @@
 .profile-body-left {
     width: 310px;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 54px;
+    height: 250px;
 }
 
 .profile-body-right {

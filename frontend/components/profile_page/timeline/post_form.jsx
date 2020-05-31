@@ -62,7 +62,7 @@ export default class PostForm extends React.Component {
           className={"modal-bg " + this.state.button}
           onClick={this.handleModalClick}
         ></div>
-        <div className="profile-post-form-container">
+        <div className={`profile-post-form-container ${this.state.button}`}>
           <div className={"post-form-close-btn " + this.state.button} onMouseDown={this.deactivatePostForm}>
             <i className="fas fa-times"></i>
           </div>

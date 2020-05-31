@@ -1,12 +1,15 @@
 .profile-post-form-container {
     position: relative;
-    z-index: 2;
     background-color: white;
     border: 1px solid #dddfe2;
     border-radius: 3px;
     margin-bottom: 10px;
     padding: 0;
     box-sizing: border-box;
+}
+
+.profile-post-form-container.active {
+    z-index: 2;
 }
 
 .post-form-nav {
@@ -28,6 +31,10 @@
     font-size: 12px;
     color: #4b4f56;
     padding: 0 8px 0 5px;
+}
+
+.profile-post-form {
+    width: 100%;
 }
 
 .profile-post-form hr {
