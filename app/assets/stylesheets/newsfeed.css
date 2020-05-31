@@ -103,7 +103,11 @@ li.portfolio-li {
 }
 
 .newsfeed-posts button.post-edit-delete-btn {
-    margin-left: 445px;
+    margin-left: 453px;
+}
+
+.newsfeed-posts .post-edit-delete-dropdown {
+    margin-left: 288px;
 }
 
 .newsfeed-right-content {

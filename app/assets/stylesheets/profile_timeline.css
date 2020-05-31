@@ -146,7 +146,7 @@ p.profile-friends-count {
 button.intro-bio-cancel-btn {
     margin-right: 0;
     background-color: #f5f6f7;
-    border-color: #CCD0CD;
+    border: 1px solid #CCD0CD;
     color: #4B4F5D;
 }
 
@@ -164,7 +164,7 @@ button.intro-bio-cancel-btn:active {
 button.intro-bio-save-btn {
     color: #fff;
     background-color: #4267b2;
-    border-color: #4267b2;
+    border: 1px solid #4267b2;
 }
 
 button.intro-bio-save-btn:hover {
@@ -413,13 +413,13 @@ p.comment-msg-p {
     background-clip: padding-box;
     background-color: #fff;
     border: 1px solid rgba(0, 0, 0, .15);
-    border-radius: 3px;
+    border-radius: 2px;
     box-shadow: 0 3px 8px rgba(0, 0, 0, .3);
     margin: 5px 0;
-    width: 205px;
+    width: 185px;
     position: absolute;
-    margin-left: 298px;
-    margin-top: 20px;
+    margin-left: 315px;
+    margin-top: 15px;
     padding: 5px 0;
 }
 
