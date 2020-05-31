@@ -48,12 +48,18 @@ export default class Intro extends React.Component {
         this.setState({ updateBio: false, bio });
     }
 
+    handleFocus(e) {
+        e.currentTarget.selectionStart = e.currentTarget.value.length;
+        e.currentTarget.selectionEnd = e.currentTarget.value.length;
+        e.currentTarget.focus();
+    }
+
     bio() {
         if (this.state.updateBio) {
             return (
                 <>
                     <form>
-                        <textarea value={this.state.bio} onChange={this.update} />
+                        <textarea value={this.state.bio} onChange={this.update} autoFocus onFocus={this.handleFocus} />
                         <div className="intro-bio-letter-count">{this.state.letterCount}</div>
                         <button className="intro-bio-cancel-btn" onClick={this.handleCancel}>Cancel</button>
                         <button className="intro-bio-save-btn" onClick={this.handleSubmit}>Save</button>
@@ -73,7 +79,7 @@ export default class Intro extends React.Component {
             return (
                 <>
                     <p style={{color}}>{bio}</p>
-                    <p onClick={() => this.setState({updateBio: true})} className="blue-font">{this.state.bioBtn}</p>
+                    <p onClick={() => this.setState({ updateBio: true })} className="blue-font">{this.state.bioBtn}</p>
                 </>
             );
         }
