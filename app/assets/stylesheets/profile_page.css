@@ -10,7 +10,7 @@
 }
 
 .profile-container h3 {
-    font-size: 16px;
+    font-size: 15px;
     font-weight: normal;
     color: #1c1e21;
     margin: 0;
@@ -189,6 +189,7 @@
 
 .profile-name {
     position: relative;
+    display: inline-block;
     left: 205px;
     bottom: 25px;
     font-weight: normal;
@@ -287,4 +288,98 @@
    width: 100%;
    height:100%;
    cursor: pointer;
+}
+
+.friend-btn {
+    float: right;
+    padding-right: 15px;
+    margin-top: -5px;
+}
+
+.friend-btn button {
+    background-color: #f5f6f7;
+    color: #4b4f56;
+    border: 1px solid rgba(0, 0, 0, .4);
+    border-radius: 2px;
+    box-sizing: content-box;
+    font-size: 12px;
+    -webkit-font-smoothing: antialiased;
+    font-weight: bold;
+    padding: 0 10px;
+    cursor: pointer;
+    transition: background-color 200ms ease-in-out;
+}
+
+.friend-btn button:hover {
+    background-color: #ebedf0;
+    transition: background-color 200ms ease-in-out;
+}
+
+.friend-btn button:active {
+    background-color: #dddfe2;
+    transform: scale(.98);
+}
+
+.friend-btn i {
+    color: #000;
+    font-size: 12px;
+    margin-right: 4px;
+    line-height: 26px;
+}
+
+.friend-menu {
+    display: none;
+    position: absolute;
+    width: 850px;
+}
+
+.friend-menu-tip {
+    float: right;
+    margin-right: -180px;
+    margin-top: 27px;
+    background-color: #fff;
+    width: 9px;
+    height: 9px;
+    transform: rotate(45deg);
+    border-left: 1px solid rgba(0, 0, 0, .45);
+    border-top: 1px solid rgba(0, 0, 0, .45);
+}
+
+.friend-menu ul {
+    float: right;
+    background-color: #fff;
+    margin-right: 15px;
+    margin-top: 32px;
+    border: 1px solid rgba(0, 0, 0, .45);
+    border-radius: 1px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, .3);
+    padding: 5px 0;
+    list-style: none;
+    width: 192px;
+}
+
+.friend-menu ul li {
+    padding: 2px 22px;
+    border: 1px solid #fff;
+    cursor: pointer;
+}
+
+.friend-menu ul li:hover {
+    background-color: #4267b2;
+    border: 1px solid #29487d;
+}
+
+.friend-menu ul li p {
+    color: #1d2129;
+    padding: 0;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+}
+
+.friend-menu ul li:hover p {
+    color: #fff;
+}
+
+.friend-menu.active {
+    display: block;
 }

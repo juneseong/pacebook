@@ -10,7 +10,7 @@
 #  updated_at   :datetime         not null
 #
 class Friendship < ApplicationRecord
-    validates :requester_id, :requestee_id, presence: true
+    validates :requestee_id, :requester_id, presence: true
     validates :status, inclusion: { in: [true, false] }
 
     belongs_to :requester,

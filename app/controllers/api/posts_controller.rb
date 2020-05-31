@@ -6,7 +6,28 @@ class Api::PostsController < ApplicationController
 
         if params[:user_id].nil?
             @users = []
-            @posts = Post.all.order(updated_at: :desc)
+            @posts = []
+            @all_posts = Post.all.order(updated_at: :desc)
+
+            @all_posts.each do |post|
+                if post.user.id == current_user.id || post.receiver.id == current_user.id
+                    @posts << post
+                    next
+                end
+
+                user_ids = []
+                requester1 = Friendship.find_by(requester_id: post.user.id, requestee_id: current_user.id)
+                requester2 = Friendship.find_by(requester_id: post.receiver.id, requestee_id: current_user.id)
+                requestee1 = Friendship.find_by(requestee_id: post.user.id, requester_id: current_user.id)
+                requestee2 = Friendship.find_by(requestee_id: post.receiver.id, requester_id: current_user.id)
+                
+                user_ids << requester1.requester_id if !requester1.nil? && requester1.status
+                user_ids << requester2.requester_id if !requester2.nil? && requester2.status
+                user_ids << requestee1.requestee_id if !requestee1.nil? && requestee1.status
+                user_ids << requestee2.requestee_id if !requestee2.nil? && requestee2.status
+
+                @posts << post if !user_ids.empty?
+            end
 
             @posts.each do |post|
                 @post_ids << post.id
@@ -14,12 +35,14 @@ class Api::PostsController < ApplicationController
                 receiver = User.find_by(id: post.receiver_id)
                 @users << receiver if !@users.include?(receiver)
             end
-        else
-            user = User.find(params[:user_id])
-            @users = User.fetch_authors(user).push(user)
-            @posts = user.received_posts
-        end
 
+            @user = current_user
+        else
+            @user = User.find(params[:user_id])
+            @users = User.fetch_authors(@user).push(@user)
+            @posts = @user.received_posts
+        end
+   
         render :index
     end
 

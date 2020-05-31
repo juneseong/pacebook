@@ -8,8 +8,11 @@ import { Link, Route } from "react-router-dom";
 export default class ProfilePage extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { imageUrl: "", imageFile: null, data: null };
+    this.state = { imageUrl: "", imageFile: null, data: null, friendMenu: "" };
     this.uploadImg = this.uploadImg.bind(this);
+    this.addFriend = this.addFriend.bind(this);
+    this.acceptFriend = this.acceptFriend.bind(this);
+    this.deleteFriend = this.deleteFriend.bind(this);
   }
 
   componentDidMount() {
@@ -41,6 +44,78 @@ export default class ProfilePage extends React.Component {
     }
   }
 
+  renderFriendButton() {
+    if (this.props.currentUser && this.props.currentUser.id !== this.props.user.id) {
+      if ((this.props.requestSent && this.props.requestSent.status) || (this.props.requestReceived && this.props.requestReceived.status)) {
+        return (
+          <>
+            <div className="friend-btn">
+              <button onClick={() => this.setState({ friendMenu: "active" })} onBlur={() => this.setState({ friendMenu: "" })}><i className="fas fa-check"></i>Friends</button>
+            </div>
+            <div className={`friend-menu ${this.state.friendMenu}`}>
+              <ul>
+                <li onMouseDown={this.deleteFriend}><p>Unfriend</p></li>
+              </ul>
+              <div className="friend-menu-tip"></div>
+              <div className="friend-menu-tip-border"></div>
+            </div>
+          </>
+        )
+      } else if (this.props.requestSent && !this.props.requestSent.status) {
+        return (
+          <>
+            <div className={`friend-menu ${this.state.friendMenu}`}>
+              <ul>
+                <li onMouseDown={this.deleteFriend}><p>Cancel Request</p></li>
+              </ul>
+              <div className="friend-menu-tip"></div>
+              <div className="friend-menu-tip-border"></div>
+            </div>
+            <div className="friend-btn">
+              <button onClick={() => this.setState({ friendMenu: "active" })} onBlur={() => this.setState({ friendMenu: "" })}><i className="fas fa-user-check"></i>Friend Request Sent</button>
+            </div>       
+          </>
+        )
+      } else if (this.props.requestReceived && !this.props.requestReceived.status) {
+        return (
+          <>
+            <div className="friend-btn">
+              <button onClick={() => this.setState({ friendMenu: "active" })} onBlur={() => this.setState({ friendMenu: "" })}><i className="fas fa-user-plus"></i>Respond to Friend Request</button>
+            </div>
+            <div className={`friend-menu ${this.state.friendMenu}`}>
+              <ul>
+                <li onMouseDown={() => this.acceptFriend(this.props.requestReceived)}><p>Confirm</p></li>
+                <li onMouseDown={this.deleteFriend}><p>Delete Request</p></li>
+              </ul>
+              <div className="friend-menu-tip"></div>
+              <div className="friend-menu-tip-border"></div>
+            </div>
+          </>
+        )
+      } else {
+        return (
+          <div className="friend-btn">
+            <button onClick={this.addFriend}><i className="fas fa-user-plus"></i>Add Friend</button>
+          </div>
+        )
+      }
+    }
+  }
+
+  addFriend() {
+    const friendship = { requestee_id: this.props.user.id, requester_id: this.props.currentUser.id };
+    this.props.addFriend(friendship);
+  }
+
+  acceptFriend(friendship) {
+    this.props.acceptFriend({ id: friendship.id });
+  }
+  
+  deleteFriend() {
+    const friendship = { requestee_id: this.props.user.id };
+    this.props.deleteFriend(friendship);
+  }
+
   render() {
     let fullName, EditProfilePhoto, EditCoverPhoto, coverBackgroundImg, profileBackgroundImg;
     const { user, currentUser } = this.props;
@@ -54,7 +129,7 @@ export default class ProfilePage extends React.Component {
     );
 
     const TimelineRoute = !currentUser ? () => <></> : () => (
-      <Route exact path="/users/:userId" render={() => <Timeline user={user} currentUser={currentUser} refresh={this.refreshPosts} updateUser={this.props.updateUser} />} />
+      <Route exact path="/users/:userId" render={() => <Timeline user={user} currentUser={currentUser} refresh={this.refreshPosts} updateUser={this.props.updateUser} friends={this.props.friends} />} />
     );
 
     const AboutRoute = !currentUser ? () => (
@@ -134,6 +209,7 @@ export default class ProfilePage extends React.Component {
           <div className="profile-photo-container" style={{ backgroundImage: `url(${profileBackgroundImg})` }}>
             <EditProfilePhoto />
           </div>
+          {this.renderFriendButton()}
           <h2 className="profile-name">
               <Link to={`/users/${user.id}`}>{fullName}</Link>
           </h2>

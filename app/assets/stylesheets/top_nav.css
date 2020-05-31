@@ -167,3 +167,23 @@ i.fas.fa-caret-down.dropdown-active {
     border: 7px solid transparent;
     border-bottom: 8px solid rgba(0, 0, 0, .15);
 }
+
+.friend-notification {
+    position: relative;
+    display: inline-block;
+}
+
+.friend-notification-count {
+    position: absolute;
+    background-color: #f13d26;
+    right: 0;
+    padding: 0 3px;
+    border-radius: 2px;
+    box-shadow: 0 1px 1px 1px rgba(0, 0, 0, .1);
+}
+
+.friend-notification-count p {
+    line-height: 0;
+    font-size: 10px;
+    margin-top: 8px;
+}

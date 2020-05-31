@@ -1,4 +1,4 @@
-json.extract! user, :id, :email, :birth_date, :gender, :bio, :profile_img, :cover_img
+json.extract! user, :id, :email, :birth_date, :gender, :bio, :profile_img, :cover_img, :requests_sent_ids, :requests_received_ids
 
 json.first_name user.first_name.capitalize
 json.last_name user.last_name.capitalize
@@ -24,5 +24,3 @@ if user.cover_img.attached?
 else
     nil
 end
-
-

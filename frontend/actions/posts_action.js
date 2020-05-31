@@ -4,13 +4,14 @@ export const RECEIVE_ALL_POSTS = "RECEIVE_ALL_POSTS";
 export const RECEIVE_POST = "RECEIVE_POST";
 export const REMOVE_POST = "REMOVE_POST";
 
-const receiveAllPosts = ({ posts, users, post_ids, likes, comments }) => ({
+const receiveAllPosts = ({ posts, users, post_ids, likes, comments, friendships }) => ({
   type: RECEIVE_ALL_POSTS,
   posts,
   users,
   post_ids,
   likes,
-  comments
+  comments,
+  friendships
 });
 
 const receivePost = post => ({

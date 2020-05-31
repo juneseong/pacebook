@@ -5,12 +5,14 @@ class TopNav extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            klass: ""
+            klass: "",
+            pendingColor: ""
         };
 
         this.logout = this.logout.bind(this);
         this.openDropdown = this.openDropdown.bind(this);
         this.closeDropdown = this.closeDropdown.bind(this);
+        this.friendNotification = this.friendNotification.bind(this);
     }
 
     logout() {
@@ -25,6 +27,24 @@ class TopNav extends React.Component {
 
     closeDropdown(e) {
         this.setState({ klass: "" });
+    }
+
+    friendNotification() {
+        if (this.props.pendingFriends.length > 0) {
+            return (
+                <div className="friend-notification">
+                    <div className="friend-notification-count">
+                        <p>{this.props.pendingFriends.length}</p>
+                    </div>
+                    <i className="fas fa-user-friends" style={{ color: "#fff" }}></i>
+                </div>
+            )
+        } else {
+            return (
+                <i className="fas fa-user-friends">
+                </i>
+            )
+        }
     }
 
     render() {
@@ -44,7 +64,7 @@ class TopNav extends React.Component {
                     <ul>
                         <li className="top-nav-prof-img-li"><Link to={`/users/${id}`}><p>{first_name}</p></Link></li>
                         <li><Link to="/"><p>Home</p></Link></li>
-                        <li><i className="fas fa-user-friends" /><i className="fab fa-facebook-messenger" /><i className="fas fa-bell"></i></li>
+                        <li>{this.friendNotification()}<i className="fab fa-facebook-messenger" /><i className="fas fa-bell"></i></li>
                         <li><i className="fas fa-question-circle"></i>
                             <button className="logout-arrow-btn" onClick={this.openDropdown} onBlur={this.closeDropdown}>
                                 <i className={`fas fa-caret-down ${this.state.klass}`}></i>

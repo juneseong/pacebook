@@ -46,11 +46,11 @@ class User < ApplicationRecord
         foreign_key: :user_id,
         class_name: :Like
 
-    has_many :requesters,
+    has_many :requests_sent,
         foreign_key: :requester_id,
         class_name: :Friendship
 
-    has_many :requestees,
+    has_many :requests_received,
         foreign_key: :requestee_id,
         class_name: :Friendship
 

@@ -7,27 +7,71 @@
 }
 
 .profile-body-left i {
-    font-size: 14px;
+    font-size: 13px;
     color: white;
     border-radius: 50%;
     padding: 5px;
-    margin-right: 8px;
+    margin-right: 7px;
 }
 
 .profile-intro-bio i {
     background-color: #4267B2;
+    width: 22px;
+    height: 22px;
+    box-sizing: border-box;
 }
 
 .profile-photos i {
     background-color: #B1D587;
+    width: 22px;
+    height: 22px;
+    box-sizing: border-box;
 }
 
 .profile-friends i {
     background-color: #F3425F;
-    width: 24px;
-    height: 24px;
-    padding: 4px;
+    width: 22px;
+    height: 22px;
     box-sizing: border-box;
+    font-size: 11px;
+}
+
+p.profile-friends-count {
+    display: inline-block;
+    margin: 0;
+    margin-left: 4px;
+    line-height: 0;
+}
+
+.friend-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.friend-list li {
+    display: inline-block;
+    margin-top: 12px;
+}
+
+.profile-friends-li-p {
+    margin-left: 4px;
+}
+
+.friend-list div {
+    width: 92px;
+    height: 92px;
+    background-size: cover;
+}
+
+.friend-list p {
+    margin: 0;
+    margin-top: 5px;
+    color: #385898;
+}
+
+.friend-list p:hover {
+    text-decoration: underline;
 }
 
 .profile-intro-info i {
@@ -107,6 +151,12 @@ button.intro-bio-cancel-btn:hover {
     transition: background-color 200ms ease-in-out;
 }
 
+button.intro-bio-cancel-btn:active {
+    transform: scale(.98);
+    background-color: #dddfe2;
+    border: 1px solid #bec3c9;
+}
+
 button.intro-bio-save-btn {
     color: #fff;
     background-color: #4267b2;
@@ -117,6 +167,12 @@ button.intro-bio-save-btn:hover {
     background-color: #365899;
     border-color: #365899;
     transition: background-color 200ms ease-in-out;
+}
+
+button.intro-bio-save-btn:active {
+    transform: scale(.98);
+    background-color: #29487d;
+    border: 1px solid #29487d;
 }
 
 .intro-bio-letter-count {
@@ -201,9 +257,9 @@ p.post-name-p:hover {
 }
 
 p.post-body {
-    font-size: 17px;
+    font-size: 16px;
     color: #1c1e21;
-    margin: 16px 0 14px 0;
+    margin: 14px 0 12px 0;
 }
 
 .post-like-comment {

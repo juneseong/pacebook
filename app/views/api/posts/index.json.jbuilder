@@ -39,3 +39,17 @@ end
 end
 
 json.post_ids @post_ids
+
+json.friendships do
+    @user.requests_sent.each do |request|
+        json.set! request.id do
+            json.partial! "api/friendships/friendship", friendship: request
+        end
+    end
+
+    @user.requests_received.each do |request|
+        json.set! request.id do
+            json.partial! "api/friendships/friendship", friendship: request
+        end
+    end
+end
