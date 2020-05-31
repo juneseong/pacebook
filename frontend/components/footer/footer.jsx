@@ -19,7 +19,7 @@ const Footer = () => {
                         <a href="https://angel.co/u/june-seong" target="_blank">AngelList</a>
                     </li>
                 </ul>
-                <hr />
+                <div className="hr" />
                 <p>June © 2020</p>
             </div>
         </div>

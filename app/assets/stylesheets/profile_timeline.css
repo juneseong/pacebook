@@ -101,8 +101,8 @@ p.profile-friends-count {
     box-sizing: border-box;
 }
 
-.profile-intro hr {
-    border: 0.5px solid #eee;
+.profile-intro .hr {
+    border-top: 1px solid #eee;
 }
 
 .profile-intro-bio p {
@@ -269,10 +269,8 @@ p.post-body {
 .post-like-comment {
     display: flex;
     justify-content: space-between;
-}
-
-.profile-post-items hr {
-    margin: 0;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
 }
 
 .post-like-comment span {
@@ -403,7 +401,7 @@ p.comment-msg-p {
     position: absolute;
     cursor: pointer;
     border: none;
-    background-color: none;
+    background-color: #fff;
 }
 
 .post-edit-delete-btn i {

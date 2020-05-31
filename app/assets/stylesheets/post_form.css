@@ -37,7 +37,8 @@
     width: 100%;
 }
 
-.profile-post-form hr {
+.profile-post-form .hr {
+    margin: 8px auto;
     margin-top: 0;
     width: 95%;
 }

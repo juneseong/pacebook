@@ -251,7 +251,7 @@ export default class SignupForm extends React.Component {
                                 <span className="signup-info-msg">
                                     <p><b>Providing your birthday</b> helps make sure you get the right Facebook experience for your age.</p>
                                 </span>
-                                <hr />
+                                <div className="hr" />
                                 <button onMouseDown={this.handleMsgClose} className="signup-info-close-btn">Close</button>
                             </span>
                             <h2>Gender</h2>
@@ -268,7 +268,7 @@ export default class SignupForm extends React.Component {
                                     <span className="signup-info-msg">
                                         <p>You can change who sees your gender on your profile later.</p>
                                     </span>
-                                    <hr />
+                                    <div className="hr" />
                                     <button onMouseDown={this.handleMsgClose} className="signup-info-close-btn">Close</button>
                                 </span>
                                 <button className="signup-msg-btn" onClick={this.handleMsgOpen("genderMsg")} onBlur={this.handleMsgClose}>

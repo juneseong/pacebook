@@ -95,7 +95,7 @@ export default class Intro extends React.Component {
                     <i className="fas fa-globe-americas"></i>
                     <h3>Intro</h3>
                     {this.bio()}
-                    <hr />
+                    <div className="hr" />
                 </div>
                 <div className="profile-intro-info">
                     <div className="profile-intro-info-item">

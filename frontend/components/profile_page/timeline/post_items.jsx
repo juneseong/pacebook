@@ -345,7 +345,6 @@ export default class PostItems extends React.Component {
         </div>
         <p className={"post-body"}>{this.props.post.body}</p>
         {this.renderLikeCount()}
-        <hr />
         <div
           className={`like-box ${this.state.likeBoxKlass}`}
           onMouseOver={this.openLikeBox}
@@ -378,7 +377,6 @@ export default class PostItems extends React.Component {
             </span>
           </span>
         </div>
-        <hr />
         {comments}
         {this.renderCommentItems()}
         <div className="post-comment-box">

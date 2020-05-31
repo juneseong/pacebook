@@ -85,7 +85,7 @@ export default class PostForm extends React.Component {
                 onFocus={this.focusTextarea}
                 value={this.state.body}
               />
-              <hr />
+              <div className="hr" />
               <button className="post-photo-btn">Upload Photo</button>
               <div className={`post-form-btn-nav ${this.state.button}`}>
                 <button
