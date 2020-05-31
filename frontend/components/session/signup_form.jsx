@@ -14,8 +14,8 @@ export default class SignupForm extends React.Component {
         this.errors = {
             first_name: "What's your name?",
             last_name: "What's your name?",
-            email: "You'll use this when you log in and if you ever need to reset your password.",
-            password: "Enter a combination of at least six numbers, letters and punctuation marks (like ! and &)."
+            email: "Please enter a valid email address.",
+            password: "Password must be at least 6 characters long."
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);

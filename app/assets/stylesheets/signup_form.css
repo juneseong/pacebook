@@ -132,10 +132,6 @@
     left: 15px;
 }
 
-.signup-error-msg-tip.email, .signup-error-msg-tip.password {
-    top: 18px;
-}
-
 .signup-error-msg-tip.shadow {
     box-shadow: 0 0 0 1px rgba(139, 3, 0, .75), 0 1px 10px rgba(0, 0, 0, .35);
     z-index: -1;
@@ -151,13 +147,11 @@
 }
 
 .error-email {
-    margin-left: -345px;
-    margin-top: -5px;
+    margin-left: -248px;
 }
 
 .error-password {
-    margin-left: -345px;
-    margin-top: -5px;
+    margin-left: -305px;
 }
 
 .error-gender {
