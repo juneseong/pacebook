@@ -1,7 +1,7 @@
 import React from "react";
 import Timeline from "./timeline/timeline";
 import About from "./about";
-import Friends from "./friends";
+import FriendsContainer from "./friends_container";
 import Photos from "./photos";
 import { Link, Route } from "react-router-dom";
 
@@ -244,7 +244,7 @@ export default class ProfilePage extends React.Component {
       <div className="profile-body">
         <TimelineRoute />
         <AboutRoute />
-        <Route path="/users/:userId/friends" render={() => <Friends />} />
+        <Route path="/users/:userId/friends" render={() => <FriendsContainer user={this.props.user} currentUser={this.props.currentUser} friends={this.props.friends} />} />
         <Route path="/users/:userId/photos" render={() => <Photos />} />
         </div>
       </div>

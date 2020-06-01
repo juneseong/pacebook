@@ -9,7 +9,7 @@ export default class Friends extends React.Component {
     }
 
     render() {
-        const friends = this.props.friends.map((friend, i) => {
+        const friends = this.props.friends.slice(0, 9).map((friend, i) => {
             const image = friend.image ? friend.image : window.no_image;
             const liName = i % 3 === 0 ? "" : "profile-friends-li-p";
 
@@ -25,7 +25,7 @@ export default class Friends extends React.Component {
             <div className="profile-friends">
                 <div>
                     <i className="fas fa-user-friends"></i>
-                    <h3>Friends</h3>
+                    <Link to={`/users/${this.props.user.id}/friends`}><h3>Friends</h3></Link>
                     <p className="profile-friends-count">{this.state.count}</p>
                 </div>
                 <ul className="friend-list">

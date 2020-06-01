@@ -52,4 +52,18 @@ json.friendships do
             json.partial! "api/friendships/friendship", friendship: request
         end
     end
+
+    if !current_user.nil?
+        current_user.requests_sent.each do |request|
+            json.set! request.id do
+                json.partial! "api/friendships/friendship", friendship: request
+            end
+        end
+
+        current_user.requests_received.each do |request|
+            json.set! request.id do
+                json.partial! "api/friendships/friendship", friendship: request
+            end
+        end
+    end
 end

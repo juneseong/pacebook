@@ -1,0 +1,104 @@
+.no-friends-text {
+    font-size: 20px;
+    color: #bbb;
+    -webkit-font-smoothing: antialiased;
+    font-weight: bold;
+    padding: 75px 0;
+    text-align: center;
+}
+
+.friends ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-top: 13px;
+    margin-right: 13px;
+}
+
+.friends ul li {
+    display: inline-block;
+    width: 50%;
+    padding-left: 13px;
+    padding-bottom: 13px; 
+    box-sizing: border-box;
+}
+
+.friends-border {
+    border: 1px solid #e9ebee;
+    display: flex;
+    justify-content: space-between;
+}
+
+.friends-image-name {
+    display: flex;
+}
+
+.friends-image {
+    width: 100px;
+    height: 100px;
+    background-size: cover;
+    margin-right: 10px;
+}
+
+.friends p.friend-name-p {
+    color: #385898;
+    font-weight: bold;
+    font-size: 14px;
+    margin: 0;
+    padding-top: 42px;
+}
+
+.friend-name-p:hover {
+    text-decoration: underline;
+}
+
+.friends button {
+    padding: 0 8px;
+    height: 24px;
+    margin-top: 40px;
+    margin-right: 10px;
+    font-weight: bold;
+    background-color: #f5f6f7;
+    border: 1px solid #ccd0d5;
+    color: #4b4f56;
+    cursor: pointer;
+    font-size: 12px;
+    border-radius: 2px;
+    -webkit-font-smoothing: antialiased;
+    transition: background-color 200ms ease-in-out;
+}
+
+.friends button:hover {
+    background-color: #ebedf0;
+    transition: background-color 200ms ease-in-out;
+}
+
+.friends button:active {
+    transform: scale(.98);
+    background-color: #dddfe2;
+    border-color: #bec3c9;
+}
+
+.friends button i {
+    color: #4b4f56;
+}
+
+.friends button.friends-add-friend-btn {
+    background-color: #4267b2;
+    border: 1px solid #4267b2;
+    color: #fff;
+}
+
+.friends button.friends-add-friend-btn:hover {
+    background-color: #365899;
+    border-color: #365899;
+}
+
+.friends button.friends-add-friend-btn:active {
+    background-color: #29487d;
+    border-color: #29487d;
+}
+
+.friends button.friends-add-friend-btn i {
+    color: #fff;
+}
