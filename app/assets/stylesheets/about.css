@@ -1,0 +1,244 @@
+.profile-page-section-body.about {
+    display: flex;
+}
+
+.profile-page-section-body.about ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.profile-page-section-body.about ul.about-menu {
+    border-right: 1px solid #d3d6db;
+    padding: 8px 0;
+    width: 242px;
+}
+
+.profile-page-section-body.about ul.about-menu li {
+    padding: 12px 16px;
+    cursor: pointer;
+}
+
+.profile-page-section-body.about ul li p {
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+}
+
+.profile-page-section-body.about ul.about-menu li p {
+    color: #90949c;
+    line-height: 18px;
+}
+
+.profile-page-section-body.about ul.about-menu li:hover p {
+    color: #4b4f56;
+}
+
+.about-menu-bar {
+    width: 3px;
+    height: 24px;
+    background-color: #3b5998;
+    position: absolute;
+    margin-top: 9px;
+}
+
+.about-container {
+    padding: 10px 24px 30px 24px;
+    position: relative;
+    width: 605px;
+    box-sizing: border-box;
+}
+
+p.about-cake-p {
+    color: #4b4f56;
+    margin: 0;
+    position: absolute;
+    right: 20px;
+    top: 26px;
+    width: 180px;
+    padding: 4px;
+}
+
+.about-cake-p i {
+    font-size: 14px;
+    color: #ccc;
+    margin-right: 4px;
+}
+
+div.about-info ul {
+    width: 100%;
+}
+
+.overview.about-info ul {
+    width: 328px;
+}
+
+.about-info ul li {
+    padding: 12px 0;
+    position: relative;
+}
+
+.about-info ul li div {
+    display: flex;
+    cursor: auto;
+}
+
+.overview.about-info ul li div {
+    padding: 8px;
+}
+
+.overview.about-info ul li div {
+    cursor: pointer;
+}
+
+.overview.about-info ul li div:hover {
+    background-color: #f5f6f7;
+}
+
+.overview.about-info ul li:not(:last-child) {
+    border-bottom: 1px solid #ebedf0;
+}
+
+.overview.about-info ul li div {
+    margin-left: -8px;
+}
+
+.about-info ul li i {
+    color: #fff;
+    font-size: 23px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #c4cce3;
+    text-align: center;
+    line-height: 32px;
+    margin-right: 14px;
+}
+
+.about-info ul li p {
+    line-height: 32px;
+}
+
+.about-header {
+    border-bottom: 1px solid #dddfe2;
+}
+
+.profile-container .about-header p {
+    margin: 0;
+    padding: 0;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #90949c;
+    line-height: 26px;
+    margin-top: 20px;
+}
+
+.about-basic-info li {
+    display: flex;
+    font-size: 14px;
+    color: #1c1e21;
+    -webkit-font-smoothing: subpixel-antialiased;
+}
+
+.about-basic-info-header {
+    width: 180px;
+    margin-right: 18px;
+    color: #90949c;
+}
+
+.about-gender {
+    border-bottom: 1px solid #ebedf0;
+}
+
+.profile-container p.no-info {
+    color: #90949c;
+}
+
+.about-info ul li div .about-info-edit-btn {
+    display: none;
+    position: absolute;
+    right: 0;
+    margin-right: 4px;
+}
+
+.about-info ul li div .about-info-edit-btn.active {
+    display: flex;
+}
+
+.overview.about-info ul li div.about-info-edit-btn {
+    margin: 0;
+    padding: 0;
+    margin-right: 4px;
+}
+
+.profile-container .about-info-edit-btn p, .profile-container .about-info-edit-btn i {
+    color: #3578e5;
+}
+
+.profile-page-section-body.about ul li .about-info-edit-btn p {
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.about-info-edit-btn p:hover {
+    text-decoration: underline;
+}
+
+.profile-container .about-info-edit-btn i {
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    margin-right: 4px;
+    font-size: 10px;
+    width: auto;
+    height: auto;
+}
+
+.about-edit-form {
+    background-color: #f5f6f7;
+    margin: -1px -24px;
+    padding: 12px 24px;
+    border-top: 1px solid #ebedf0;
+    border-bottom: 1px solid #ebedf0;
+}
+
+.about-edit-form label {
+    width: 180px;
+    margin-right: 15px;
+    display:inline-block;
+    text-align: right;
+    font-size: 14px;
+    color: #606770;
+    line-height: 26px;
+}
+
+.about-edit-form input {
+    width: 244px;
+    height: 32px;
+    padding: 7px 8px;
+    border: 1px solid #dddfe2;
+    color: #1d2129;
+    line-height: 16px;
+    vertical-align: middle;
+    box-sizing: border-box;
+    margin-bottom: 5px;
+}
+
+.about-edit-form-btn {
+    margin: 0 auto;
+    width: 200px;
+}
+
+.about-edit-form button {
+    padding: 0 10px;
+    line-height: 26px;
+    font-weight: bold;
+    -webkit-font-smoothing: antialiased;
+    cursor: pointer;
+    border-radius: 2px;
+    margin-top: 2px;
+}
+
+.about-edit-form button.intro-bio-save-btn {
+    margin-right: 4px;
+}

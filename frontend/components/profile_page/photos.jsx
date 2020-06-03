@@ -9,7 +9,7 @@ export default class Photos extends React.Component {
                         <i className="fas fa-image"></i><h2>Photos</h2>
                     </div>
                     <div className="profile-page-section-body">
-
+                        <div className="no-friends-text">No photos to show</div>
                     </div>
                 </div>
             </div>

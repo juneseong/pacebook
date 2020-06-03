@@ -133,8 +133,8 @@ export default class ProfilePage extends React.Component {
     );
 
     const AboutRoute = !currentUser ? () => (
-      <Route exact path={["/users/:userId", "/users/:userId/about"]} component={About} />
-    ) : () => <Route path="/users/:userId/about" component={About} />;
+      <Route exact path={["/users/:userId", "/users/:userId/about"]} component={() => <About user={user} currentUser={currentUser} />} />
+    ) : () => <Route path="/users/:userId/about" component={() => <About user={user} currentUser={currentUser} />} />;
 
     if (user.email) {
       coverBackgroundImg = user.cover_img.name ? {} : { backgroundImage: "url(" + user.cover_img + ")" };
@@ -228,13 +228,8 @@ export default class ProfilePage extends React.Component {
               </li>
             </Link>
             <Link to={`/users/${user.id}/photos`}>
-              <li>
-                <p>Photos</p>
-              </li>
-            </Link>
-            <Link to={`/users/${user.id}`}>
               <li className="profile-nav-last-li">
-                <p>More</p>
+                <p>Photos</p>
               </li>
             </Link>
           </ul>

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default class Intro extends React.Component {
     constructor(props) {
@@ -85,6 +86,43 @@ export default class Intro extends React.Component {
         }
     }
 
+    renderUserInfo(field) {
+        const { user } = this.props;
+
+        if (user[field]) {
+            let icon;
+            let text;
+            let link;
+            let info = user[field];
+
+            switch (field) {
+                case "city":
+                    info = `${user[field]}, ${user.state}`;
+                    text = "Lives in"
+                    icon = "fas fa-home";
+                    link = "place";
+                    break;
+                case "work":
+                    text = "Works at";
+                    icon = "fas fa-briefcase";
+                    link = "work";
+                    break;
+                case "school":
+                    text = "Studied at";
+                    icon = "fas fa-graduation-cap";
+                    link = "work";
+                    break
+            }
+
+            return (
+                <div className="profile-intro-info-item">
+                    <i className={icon}></i>
+                    <p>{text}&nbsp;</p><Link to={`/users/${user.id}/about/${link}`}><p className="blue-font">{info}</p></Link>
+                </div>
+            )
+        }
+    }
+
     render() {
         const { user } = this.props;
         if (user === null) return null;
@@ -98,19 +136,10 @@ export default class Intro extends React.Component {
                     <div className="hr" />
                 </div>
                 <div className="profile-intro-info">
-                    <div className="profile-intro-info-item">
-                        <i className="fas fa-home"></i>
-                        <p>Lives in&nbsp;</p><p className="blue-font">New York</p>
-                    </div>
-                    <div className="profile-intro-info-item">
-                        <i className="fas fa-briefcase"></i>
-                        <p>Works at&nbsp;</p><p className="blue-font">App Academy</p>
-                    </div>
-                    <div className="profile-intro-info-item">
-                        <i className="fas fa-graduation-cap"></i>
-                        <p>Studied at&nbsp;</p><p className="blue-font">App Academy</p>
-                    </div>
-                    <div className="profile-intro-info-item">
+                    {this.renderUserInfo("city")}
+                    {this.renderUserInfo("work")}
+                    {this.renderUserInfo("school")}
+                    <div className="profile-intro-info-item join">
                         <i className="far fa-clock"></i>
                         <p>Joined {user.created_at}</p>
                     </div>

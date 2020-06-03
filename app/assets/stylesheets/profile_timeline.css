@@ -85,6 +85,10 @@ p.profile-friends-count {
     line-height: 15px;
 }
 
+.profile-intro-info-item.join i {
+    font-size: 16px;
+}
+
 .profile-intro-info p {
     display: inline-block;
     line-height: 15px;
@@ -98,6 +102,7 @@ p.profile-friends-count {
     border-radius: 3px;
     margin-bottom: 10px;
     padding: 12px;
+    padding-bottom: 10px;
     box-sizing: border-box;
 }
 

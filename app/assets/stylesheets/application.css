@@ -55,7 +55,7 @@ p.blue-font {
     cursor: pointer;
 }
 
-.blue-font:hover {
+p.blue-font:hover {
     text-decoration: underline;
 }
 
