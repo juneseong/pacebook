@@ -102,6 +102,13 @@ i.fab.fa-facebook-f {
     margin-top: 1px;
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
+    border-right: 1px solid #3b5998;
+    transition: 200ms cubic-bezier(.08,.52,.52,1) background-color, 200ms cubic-bezier(.08,.52,.52,1) box-shadow, 200ms cubic-bezier(.08,.52,.52,1) transform;
+}
+
+.search-icon.active {
+    background-color: #4080ff;
+    transition: 200ms cubic-bezier(.08,.52,.52,1) background-color, 200ms cubic-bezier(.08,.52,.52,1) box-shadow, 200ms cubic-bezier(.08,.52,.52,1) transform;
 }
 
 i.fas.fa-search {
@@ -109,6 +116,10 @@ i.fas.fa-search {
     margin: 0;
     padding-top: 5px;
     color: #4b4f56;
+}
+
+.search-icon.active i.fas.fa-search {
+    color: #fff;
 }
 
 .logout-dropdown {
@@ -190,4 +201,32 @@ i.fas.fa-caret-down.dropdown-active {
     line-height: 0;
     font-size: 10px;
     margin-top: 8px;
+}
+
+.search-results {
+    position: fixed;
+    top: 35px;
+    left: 231px;
+    background-color: #fff;
+    border-radius: 2px;
+    min-width: 446px;
+    box-sizing: border-box;
+    box-shadow: 0 4px 6px 2px rgba(0, 0, 0, .10);
+}
+
+.search-results ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.search-results ul li {
+    padding: 7px 8px;
+    font-size: 13px;
+    cursor: pointer;
+    -webkit-font-smoothing: subpixel-antialiased;
+}
+
+.search-results ul li:hover {
+    background-color: #ecf0f7;
 }

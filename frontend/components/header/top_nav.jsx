@@ -6,13 +6,18 @@ class TopNav extends React.Component {
         super(props);
         this.state = {
             klass: "",
-            pendingColor: ""
+            pendingColor: "",
+            search: "",
+            focused: false,
+            searchBtn: ""
         };
 
         this.logout = this.logout.bind(this);
         this.openDropdown = this.openDropdown.bind(this);
         this.closeDropdown = this.closeDropdown.bind(this);
         this.friendNotification = this.friendNotification.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+        this.handleLink = this.handleLink.bind(this);
     }
 
     logout() {
@@ -47,8 +52,57 @@ class TopNav extends React.Component {
         }
     }
 
+    handleChange(e) {
+        this.setState({ search: e.currentTarget.value });
+        this.props.searchUsers(e.currentTarget.value);
+    }
+
+    handleLink(userId) {
+        this.props.history.push(`/users/${userId}`);
+        this.setState({ search: "" });
+        this.props.searchUsers("");
+    }
+
     render() {
         const { first_name, id } = this.props.user;
+        let users = Object.values(this.props.users);
+        let searchResults;
+
+        if (this.state.focused) {
+            if (users.length > 0) {
+                searchResults = users.map((user, i) => {
+                    const indices = [];
+
+                    for (let i = 0; i < user.name.length; i++) {
+                        if (user.name.split("").slice(i, i + this.state.search.length).join("").toLowerCase() === this.state.search.toLowerCase()) {
+                            for (let j = i; j < i + this.state.search.length; j++) {
+                                indices.push(j);
+                            }
+                        }
+                    };
+
+                    const name = user.name.split("").map((letter, i) => {
+                        if (indices.includes(i)) {
+                            return (<span key={i}>{letter}</span>);
+                        } else {
+                            return (
+                                <span key={i} style={{ fontWeight: "bold" }}>
+                                    {letter}
+                                </span>
+                            )
+                        }
+                    });
+
+                    return (
+                        <li key={user.id + i} onMouseDown={() => this.handleLink(user.id)}>
+                            {name}
+                        </li>
+                    )
+                });
+            } else if (this.state.search.length > 0) {
+                searchResults = [this.state.search].map((result, i) => <li key={i}>{result}</li>);
+            }
+        }
 
         return (
             <div className="top-nav-container">
@@ -56,11 +110,10 @@ class TopNav extends React.Component {
                     <ul>
                         <Link to="/"><li><i className="fab fa-facebook-f"></i></li></Link>
                         <li className="search-bar-li">
-                            <div className="search-icon"><i className="fas fa-search"></i></div>
-                            <input type="text" className="search-bar" placeholder="Search"/>
+                            <div className={`search-icon ${this.state.searchBtn}`}><i className="fas fa-search"></i></div>
+                            <input type="text" className="search-bar" placeholder="Search" value={this.state.search} onChange={this.handleChange} onFocus={() => this.setState({ focused: true, searchBtn: "active" })} onBlur={() => this.setState({ focused: false, searchBtn: "" })} />
                         </li>
                     </ul>
-
                     <ul>
                         <li className="top-nav-prof-img-li"><Link to={`/users/${id}`}><p>{first_name}</p></Link></li>
                         <li><Link to="/"><p>Home</p></Link></li>
@@ -75,6 +128,11 @@ class TopNav extends React.Component {
                             <span className="logout-dropdown-tooltip" />
                             <p onMouseDown={this.logout}>Log Out</p>
                         </div>
+                    </ul>
+                </div>
+                <div className="search-results">
+                    <ul>
+                        {searchResults}
                     </ul>
                 </div>
             </div>

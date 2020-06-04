@@ -35,6 +35,20 @@ class Api::UsersController < ApplicationController
         @user = User.find(params[:id])
     end
 
+    def index
+        data = params[:data].split(" ")
+
+        if params[:data] == ""
+            @users = User.none
+        else
+            data.each do |d|
+                @users = User.where("LOWER(first_name) LIKE ?", "%" + d.downcase + "%").or(User.where("LOWER(last_name) LIKE ?", "%" + d.downcase + "%"))
+            end
+        end
+
+        render :index
+    end
+
     private
     def user_params
         params.require(:user).permit(:email, :password, :first_name, :last_name, :birth_date, :gender, :bio, :work, :school, :city, :state)

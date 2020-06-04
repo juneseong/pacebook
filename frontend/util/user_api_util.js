@@ -13,6 +13,14 @@ export const fetchUsers = postIds => (
     })
 );
 
+export const fetchSearchUsers = data => (
+    $.ajax({
+        url: "/api/users",
+        method: "GET",
+        data: { data }
+    })
+);
+
 export const createUser = user => (
     $.ajax({
         url: `/api/users`,

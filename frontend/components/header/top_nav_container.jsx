@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 import TopNav from "./top_nav";
 import { logout } from "../../actions/session_action";
+import { fetchSearchUsers } from "../../actions/users_action";
 
 const mapStateToProps = (state) => {
     const user = state.entities.users[state.session.id];
@@ -12,12 +13,14 @@ const mapStateToProps = (state) => {
 
     return {
         user,
-        pendingFriends
+        pendingFriends,
+        users: state.entities.search.users ? state.entities.search.users : {}
     };
 };
 
 const mapDispatchToProps = dispatch => ({
-    logout: () => dispatch(logout())
+    logout: () => dispatch(logout()),
+    searchUsers: data => dispatch(fetchSearchUsers(data))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TopNav);

@@ -4,6 +4,7 @@ import { receiveCurrentUser } from "./session_action";
 export const RECEIVE_USERS_ERRORS = "RECEIVE_USERS_ERRORS";
 export const RECEIVE_USER = "RECEIVE_USER";
 export const RECEIVE_ALL_USERS = "RECEIVE_ALL_USERS";
+export const RECEIVE_SEARCH_USERS = "RECEIVE_SEARCH_USERS";
 
 const receiveUser = user => ({
     type: RECEIVE_USER,
@@ -18,6 +19,11 @@ const receiveAllUsers = users => ({
 const receiveUsersErrors = errors => ({
     type: RECEIVE_USERS_ERRORS,
     errors
+});
+
+const receiveSearchUsers = users => ({
+    type: RECEIVE_SEARCH_USERS,
+    users
 });
 
 export const fetchUser = userId => dispatch => (
@@ -39,4 +45,9 @@ export const createUser = user => dispatch => (
 export const updateUser = (userId, formData) => dispatch => (
     UserApiUtil.updateUser(userId, formData)
         .then(user => dispatch(receiveUser(user)))
+);
+
+export const fetchSearchUsers = data => dispatch => (
+    UserApiUtil.fetchSearchUsers(data)
+        .then(users => dispatch(receiveSearchUsers(users)))
 );
