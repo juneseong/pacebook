@@ -204,9 +204,8 @@ i.fas.fa-caret-down.dropdown-active {
 }
 
 .search-results {
-    position: fixed;
-    top: 35px;
-    left: 231px;
+    position: absolute;
+    margin-left: 1px;
     background-color: #fff;
     border-radius: 2px;
     min-width: 446px;
@@ -225,6 +224,8 @@ i.fas.fa-caret-down.dropdown-active {
     font-size: 13px;
     cursor: pointer;
     -webkit-font-smoothing: subpixel-antialiased;
+    display: block;
+    height: auto;
 }
 
 .search-results ul li:hover {

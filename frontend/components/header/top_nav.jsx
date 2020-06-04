@@ -112,6 +112,11 @@ class TopNav extends React.Component {
                         <li className="search-bar-li">
                             <div className={`search-icon ${this.state.searchBtn}`}><i className="fas fa-search"></i></div>
                             <input type="text" className="search-bar" placeholder="Search" value={this.state.search} onChange={this.handleChange} onFocus={() => this.setState({ focused: true, searchBtn: "active" })} onBlur={() => this.setState({ focused: false, searchBtn: "" })} />
+                            <div className="search-results">
+                                <ul>
+                                    {searchResults}
+                                </ul>
+                            </div>
                         </li>
                     </ul>
                     <ul>
@@ -128,11 +133,6 @@ class TopNav extends React.Component {
                             <span className="logout-dropdown-tooltip" />
                             <p onMouseDown={this.logout}>Log Out</p>
                         </div>
-                    </ul>
-                </div>
-                <div className="search-results">
-                    <ul>
-                        {searchResults}
                     </ul>
                 </div>
             </div>
