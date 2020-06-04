@@ -1,6 +1,6 @@
 import React from "react";
 import Timeline from "./timeline/timeline";
-import About from "./about";
+import AboutContainer from "./about/about_container";
 import FriendsContainer from "./friends_container";
 import Photos from "./photos";
 import { Link, Route } from "react-router-dom";
@@ -133,8 +133,8 @@ export default class ProfilePage extends React.Component {
     );
 
     const AboutRoute = !currentUser ? () => (
-      <Route exact path={["/users/:userId", "/users/:userId/about"]} component={() => <About user={user} currentUser={currentUser} />} />
-    ) : () => <Route path="/users/:userId/about" component={() => <About user={user} currentUser={currentUser} />} />;
+      <Route exact path={["/users/:userId", "/users/:userId/about"]} component={() => <AboutContainer user={user} currentUser={currentUser} />} />
+    ) : () => <Route path="/users/:userId/about" component={() => <AboutContainer user={user} currentUser={currentUser} />} />;
 
     if (user.email) {
       coverBackgroundImg = user.cover_img.name ? {} : { backgroundImage: "url(" + user.cover_img + ")" };

@@ -50,7 +50,7 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-    updateUser: (userId, formData) => dispatch(updateUser(userId, formData)).fetchPosts,
+    updateUser: (userId, formData) => dispatch(updateUser(userId, formData)),
     fetchPosts: userId => dispatch(fetchPosts(userId)),
     addFriend: friendship => dispatch(addFriend(friendship)),
     acceptFriend: friendship => dispatch(acceptFriend(friendship)),

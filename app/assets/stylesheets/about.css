@@ -159,6 +159,7 @@ div.about-info ul {
     position: absolute;
     right: 0;
     margin-right: 4px;
+    cursor: pointer;
 }
 
 .about-info ul li div .about-info-edit-btn.active {
@@ -177,10 +178,9 @@ div.about-info ul {
 
 .profile-page-section-body.about ul li .about-info-edit-btn p {
     font-size: 12px;
-    cursor: pointer;
 }
 
-.about-info-edit-btn p:hover {
+.about-info-edit-btn:hover p {
     text-decoration: underline;
 }
 
