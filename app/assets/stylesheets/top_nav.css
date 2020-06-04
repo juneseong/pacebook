@@ -28,6 +28,7 @@
     height: 28px;
     vertical-align: middle;
     cursor: pointer;
+    border-radius: 2px;
 }
 
 .top-nav ul li a {
@@ -39,13 +40,8 @@
     background-color: #345794;
 }
 
-.top-nav ul:nth-child(2) li {
-    border-left: 1px solid #305088;
+.top-nav ul:nth-child(2) li, .top-nav ul:nth-child(2) a li:first-child {
     padding: 0 12px;
-}
-
-.top-nav ul:nth-child(2) li:first-child {
-    border-left: none;
 }
 
 .top-nav ul:nth-child(2) li:last-child {
@@ -55,18 +51,19 @@
 
 .top-nav ul li i {
     color: #1c1e21;
-    font-size: 18px;
-    margin: 4px 6px;
+    font-size: 17px;
+    margin: 4px 5px;
+    margin-top: 6px;
 }
 
 i.fab.fa-facebook-f {
     color: white;
-    font-size: 23px;
+    font-size: 22px;
     margin: 0;
     margin-left: 5px;
     top: 0;
     margin-right: 7px;
-    padding-top: 2px;
+    padding-top: 3px;
 }
 
 .top-nav p {
@@ -129,10 +126,9 @@ i.fas.fa-search {
     border-radius: 2px;
     border: 1px solid rgba(0, 0, 0, .15);
     box-shadow: 0 3px 8px rgba(0, 0, 0, .3);
-    margin-right: -300px;
     position: absolute;
     margin-top: 10px;
-    margin-left: 100px;
+    margin-left: -145px;
     cursor: pointer;
     padding-top: 5px;
 }
@@ -230,4 +226,12 @@ i.fas.fa-caret-down.dropdown-active {
 
 .search-results ul li:hover {
     background-color: #ecf0f7;
+}
+
+.top-nav-divider {
+    height: 17px;
+    border-left: 1px solid #305088;
+    display: inline-block;
+    top: 14px;
+    position: absolute;
 }

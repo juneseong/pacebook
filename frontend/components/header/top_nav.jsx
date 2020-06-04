@@ -120,19 +120,26 @@ class TopNav extends React.Component {
                         </li>
                     </ul>
                     <ul>
-                        <li className="top-nav-prof-img-li"><Link to={`/users/${id}`}><p>{first_name}</p></Link></li>
-                        <li><Link to="/"><p>Home</p></Link></li>
-                        <li>{this.friendNotification()}<i className="fab fa-facebook-messenger" /><i className="fas fa-bell"></i></li>
-                        <li><i className="fas fa-question-circle"></i>
+                        <Link to={`/users/${id}`}><li className="top-nav-prof-img-li"><p>{first_name}</p></li></Link>
+                        <div className="top-nav-divider" />
+                        <Link to="/"><li><p>Home</p></li></Link>
+                        <div className="top-nav-divider" />
+                        <li>
+                            {this.friendNotification()}
+                            <i className="fas fa-bell"></i>
+                        </li>
+                        <div className="top-nav-divider" />
+                        <li>
+                            <i className="fas fa-question-circle"></i>
                             <button className="logout-arrow-btn" onClick={this.openDropdown} onBlur={this.closeDropdown}>
                                 <i className={`fas fa-caret-down ${this.state.klass}`}></i>
                             </button>
+                            <div className={`logout-dropdown ${this.state.klass}`} onMouseDown={this.openDropdown}>
+                                <span className="logout-dropdown-tooltip-border" />
+                                <span className="logout-dropdown-tooltip" />
+                                <p onMouseDown={this.logout}>Log Out</p>
+                            </div>
                         </li>
-                        <div className={`logout-dropdown ${this.state.klass}`} onMouseDown={this.openDropdown}>
-                            <span className="logout-dropdown-tooltip-border" />
-                            <span className="logout-dropdown-tooltip" />
-                            <p onMouseDown={this.logout}>Log Out</p>
-                        </div>
                     </ul>
                 </div>
             </div>
