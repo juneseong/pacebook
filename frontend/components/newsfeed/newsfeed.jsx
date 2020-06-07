@@ -77,7 +77,7 @@ export default class Newsfeed extends React.Component {
                         <ul>
                             <li>
                                 <img src="https://img.icons8.com/color/48/000000/birthday.png" />
-                                <Link to="/users/72"><p className="p-blue">June Seong</p></Link><p>'s birthday is today</p>
+                                <Link to="/users/85"><p className="p-blue">June Seong</p></Link><p>'s birthday is today</p>
                             </li>
                         </ul>
                     </div>

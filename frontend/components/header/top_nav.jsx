@@ -34,10 +34,22 @@ class TopNav extends React.Component {
                     this.setState({ friendClass: "", friendColor: "" });
                 }
 
-                if (!e.target.closest(`[id=notification]`)) {
+                if (!e.target.closest(`[id=notification]`) || e.target.closest(`[id=notification-link]`)) {
                     this.setState({ notificationClass: "", notificationColor: "" });
                 }
             });
+
+        }
+    }
+
+    componentDidUpdate() {
+        const post = document.getElementById(this.props.history.location.hash.split("").slice(1).join(""));
+        if (post && !post.nextSibling.className.includes("highlight")) {
+            post.nextSibling.classList.add("highlight");
+
+            setTimeout(function () {
+                post.nextSibling.classList.add("remove");
+            }, 2000);
         }
     }
 
@@ -163,7 +175,7 @@ class TopNav extends React.Component {
                     <li key={`no-${notification.id * i}`}>
                         <div className="pending-friend-img-name">
                             <Link to={`/users/${notification.sender_id}`}><div className="pending-friend-img" style={{ backgroundImage: `url(${image})` }}></div></Link>
-                            <Link to={`/users/${notification.sender_id}`}>{notification.sender_name}</Link><span>{text} <HashLink to={`/users/${notification.post_user_id}/#${notification.post_id}`}>{linkText}</HashLink>.</span>
+                            <Link to={`/users/${notification.sender_id}`}>{notification.sender_name}</Link><span>{text} <span id="notification-link"><HashLink to={`/users/${notification.post_user_id}/#${notification.post_id}`}>{linkText}</HashLink></span>.</span>
                         </div>
                     </li>
                 )

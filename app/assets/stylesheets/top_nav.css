@@ -331,6 +331,10 @@ i.fas.fa-caret-down.dropdown-active {
     margin-left: 4px;
 }
 
+#notification-link {
+    margin-left: 0;
+}
+
 .pending-friend-img-name a:last-child {
     font-weight: bold;
     -webkit-font-smoothing: antialiased;

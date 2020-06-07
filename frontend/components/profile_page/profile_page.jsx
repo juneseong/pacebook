@@ -147,7 +147,7 @@ export default class ProfilePage extends React.Component {
           EditCoverPhoto = () => (
               <div className="add-cover-photo-text add">
                   <i className="fas fa-camera">
-                      <input className="cover-img-upload" type="file" onChange={this.uploadImg} />
+                      <input className="cover-img-upload" type="file" title="" onChange={this.uploadImg} />
                   </i>
               </div>
           );
@@ -155,7 +155,7 @@ export default class ProfilePage extends React.Component {
           EditCoverPhoto = () => (
             <div className="add-cover-photo-text edit">           
               <i className="fas fa-camera">
-                  <input className="cover-img-upload" type="file" onChange={this.uploadImg} />
+                <input className="cover-img-upload" type="file" title="" onChange={this.uploadImg} />
               </i>
             </div>
           );
@@ -167,7 +167,7 @@ export default class ProfilePage extends React.Component {
                 <i className="fas fa-camera"></i>
                 <br />
                 <p>Add Photo</p>
-                <input className="profile-img-upload" type="file" onChange={this.uploadImg} />
+                <input className="profile-img-upload" type="file" title="" onChange={this.uploadImg} />
               </div>
               <div className="half-circle-left"></div>
               <div className="half-circle-right"></div>
@@ -180,7 +180,7 @@ export default class ProfilePage extends React.Component {
                 <i className="fas fa-camera"></i>
                 <br />
                 <p><b>Update</b></p>
-                <input className="profile-img-upload" type="file" onChange={this.uploadImg} />
+                <input className="profile-img-upload" type="file" title="" onChange={this.uploadImg} />
               </div>
               <div className="half-circle-left"></div>
               <div className="half-circle-right"></div>

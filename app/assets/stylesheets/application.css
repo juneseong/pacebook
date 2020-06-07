@@ -50,10 +50,10 @@ textarea {
     display: flex;
 }
 
-.anchor{
+.anchor {
   display: block;
-  height: 115px; 
-  margin-top: -115px; 
+  height: 52px; 
+  margin-top: -52px; 
   visibility: hidden;
 }
 

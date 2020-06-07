@@ -72,10 +72,16 @@
 
 .add-cover-photo-text.add i:hover:after {
     content: "   Add Cover Photo";
+    cursor: pointer;
 }
 
 .add-cover-photo-text.edit i:hover:after {
     content: "   Update Cover Photo";
+    cursor: pointer;
+}
+
+input[type=file], input[type=file]::-webkit-file-upload-button {
+    cursor: pointer; 
 }
 
 .add-photo-text p {
