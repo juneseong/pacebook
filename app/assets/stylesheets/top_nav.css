@@ -137,6 +137,10 @@ i.fas.fa-search {
     padding-top: 5px;
 }
 
+.logout-dropdown.dropdown-active.links {
+    margin-left: -168px;
+}
+
 .logout-dropdown p {
     color: #666;
     font-weight: normal;
@@ -151,7 +155,7 @@ i.fas.fa-search {
     color: white;
 }
 
-.logout-arrow-btn {
+.logout-arrow-btn, .links-btn {
     background-color: transparent;
     border: none;
     margin: 0;
@@ -164,6 +168,10 @@ i.fas.fa-search {
 }
 
 i.fas.fa-caret-down.dropdown-active {
+    color: white;
+}
+
+i.fas.fa-question-circle.dropdown-active {
     color: white;
 }
 

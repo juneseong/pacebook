@@ -8,6 +8,7 @@ class TopNav extends React.Component {
 
         this.state = {
             klass: "",
+            linksClass: "",
             pendingColor: "",
             search: "",
             focused: false,
@@ -66,11 +67,15 @@ class TopNav extends React.Component {
 
     openDropdown(e) {
         e.preventDefault();
-        this.setState({ klass: "dropdown-active" });
+        if (e.currentTarget.className === "links-btn" || e.currentTarget.className.includes("links")) {
+            this.setState({ linksClass: "dropdown-active" });
+        } else {
+            this.setState({ klass: "dropdown-active" });
+        }
     }
 
     closeDropdown(e) {
-        this.setState({ klass: "" });
+        this.setState({ klass: "", linksClass: "" });
     }
 
     friendNotifications() {      
@@ -301,7 +306,17 @@ class TopNav extends React.Component {
                         </li>
                         <div className="top-nav-divider" />
                         <li className="top-nav-last-li">
-                            <i className="fas fa-question-circle"></i>
+                            <button className="links-btn" onClick={this.openDropdown} onBlur={this.closeDropdown}>
+                                <i className={`fas fa-question-circle ${this.state.linksClass}`}></i>
+                            </button>
+                            <div className={`logout-dropdown ${this.state.linksClass} links`} onMouseDown={this.openDropdown}>
+                                <span className="logout-dropdown-tooltip-border" />
+                                <span className="logout-dropdown-tooltip" />
+                                <a href="https://github.com/juneseong" target="_blank"><p>Github</p></a>
+                                <a href="https://www.linkedin.com/in/juneseong" target="_blank"><p>LinkedIn</p></a>
+                                <a href="https://angel.co/u/june-seong" target="_blank"><p>AngelList</p></a>
+                                <a href="https://juneseong.com" target="_blank"><p>Portfolio</p></a>
+                            </div>
                             <button className="logout-arrow-btn" onClick={this.openDropdown} onBlur={this.closeDropdown}>
                                 <i className={`fas fa-caret-down ${this.state.klass}`}></i>
                             </button>
