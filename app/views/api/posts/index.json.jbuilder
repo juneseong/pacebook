@@ -67,3 +67,11 @@ json.friendships do
         end
     end
 end
+
+json.notifications do
+    current_user.notifications.each do |notification|
+        json.set! notification.id do
+            json.partial! "api/notifications/notification", notification: notification
+        end
+    end
+end

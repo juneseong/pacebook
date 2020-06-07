@@ -24,7 +24,7 @@ user5.cover_img.attach(io:open("https://pacebook-seed.s3.amazonaws.com/image/kob
 user1.profile_img.attach(io:open("https://pacebook-seed.s3.amazonaws.com/image/image.jpg"), filename:"june.jpg")
 
 post3 = Post.create!(body: "hello world!", user_id: user1.id, receiver_id: user1.id)
-post2 = Post.create!(body: "hey!", user_id: user4.id, receiver_id: user3.id)
+post2 = Post.create!(body: "hey haejun!", user_id: user4.id, receiver_id: user3.id)
 post1 = Post.create!(body: "hi koba ;)", user_id: user2.id, receiver_id: user5.id)
 post4 = Post.create!(body: "hi :)", user_id: user3.id, receiver_id: user4.id)
 post5 = Post.create!(body: "woof!", user_id: user5.id, receiver_id: user2.id)
@@ -44,3 +44,12 @@ comment4 = Comment.create!(body: "woah, how do you guys know each other?", user_
 
 like9 = Like.create!(likeable_type: "Comment", likeable_id: comment1.id, emoji_type: "Like", user_id: user3.id)
 like10 = Like.create!(likeable_type: "Comment", likeable_id: comment2.id, emoji_type: "Like", user_id: user1.id)
+
+friendship1 = Friendship.create!(requestee_id: user1.id, requester_id: user2.id, status: true)
+friendship2 = Friendship.create!(requestee_id: user1.id, requester_id: user3.id, status: true)
+friendship3 = Friendship.create!(requestee_id: user1.id, requester_id: user4.id, status: true)
+friendship4 = Friendship.create!(requestee_id: user1.id, requester_id: user5.id, status: true)
+friendship5 = Friendship.create!(requestee_id: user2.id, requester_id: user3.id, status: true)
+friendship6 = Friendship.create!(requestee_id: user3.id, requester_id: user4.id, status: true)
+friendship7 = Friendship.create!(requestee_id: user2.id, requester_id: user5.id, status: true)
+friendship8 = Friendship.create!(requestee_id: user2.id, requester_id: user4.id, status: true)

@@ -50,6 +50,13 @@ textarea {
     display: flex;
 }
 
+.anchor{
+  display: block;
+  height: 115px; 
+  margin-top: -115px; 
+  visibility: hidden;
+}
+
 p.blue-font {
     color: #385898;
     cursor: pointer;

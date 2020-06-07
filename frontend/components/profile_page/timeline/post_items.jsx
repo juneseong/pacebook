@@ -305,96 +305,99 @@ export default class PostItems extends React.Component {
       editBtnClass = "active";
 
     return (
-      <div className="profile-post-items">
-        <div className="post-img-name-date">
-          <div className="post-edit-delete-btn-div">
-            <button
-              className={`post-edit-delete-btn ${editBtnClass}`}
-              onClick={this.dropdownOpen}
-              onBlur={this.dropdownClose}
-            >
-              <i className="fas fa-ellipsis-h"></i>
-            </button>
-            <div
-              className={`post-edit-delete-dropdown ${this.state.btnKlass}`}
-              onMouseDown={this.dropdownOpen}
-            >
-              <ul>
-                <li onClick={this.deletePost(this.props.post.id)}>
-                  <p>Delete post</p>
-                </li>
-              </ul>
+      <>
+        <span className="anchor" id={this.props.id}></span>
+        <div className="profile-post-items">
+          <div className="post-img-name-date">
+            <div className="post-edit-delete-btn-div">
+              <button
+                className={`post-edit-delete-btn ${editBtnClass}`}
+                onClick={this.dropdownOpen}
+                onBlur={this.dropdownClose}
+              >
+                <i className="fas fa-ellipsis-h"></i>
+              </button>
+              <div
+                className={`post-edit-delete-dropdown ${this.state.btnKlass}`}
+                onMouseDown={this.dropdownOpen}
+              >
+                <ul>
+                  <li onClick={this.deletePost(this.props.post.id)}>
+                    <p>Delete post</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <Link to={link}>
+              <div className="post-item-profile-img">
+                <img src={`${image}`} />
+              </div>
+            </Link>
+            <div className="post-name-date">
+              <div className="post-names">
+                <Link to={link}>
+                  <p className="post-name-p">
+                    {first_name} {last_name}
+                  </p>
+                </Link>
+                {this.renderReceiverName()}
+              </div>
+              <p className="post-date-p">{this.props.post.created_at}</p>
             </div>
           </div>
-          <Link to={link}>
-            <div className="post-item-profile-img">
-              <img src={`${image}`} />
-            </div>
-          </Link>
-          <div className="post-name-date">
-            <div className="post-names">
-              <Link to={link}>
-                <p className="post-name-p">
-                  {first_name} {last_name}
-                </p>
-              </Link>
-              {this.renderReceiverName()}
-            </div>
-            <p className="post-date-p">{this.props.post.created_at}</p>
-          </div>
-        </div>
-        <p className={"post-body"}>{this.props.post.body}</p>
-        {this.renderLikeCount()}
-        <div
-          className={`like-box ${this.state.likeBoxKlass}`}
-          onMouseOver={this.openLikeBox}
-          onMouseOut={this.closeLikeBox}
-        >
-          <img src={window.like} onClick={this.handleEmojiClick("Like")} />
-          <img src={window.love} onClick={this.handleEmojiClick("Love")} />
-          <img src={window.haha} onClick={this.handleEmojiClick("Haha")} />
-          <img src={window.angry} onClick={this.handleEmojiClick("Angry")} />
-          <img src={window.sad} onClick={this.handleEmojiClick("Sad")} />
-          <img src={window.wow} onClick={this.handleEmojiClick("Wow")} />
-        </div>
-        <div className="post-like-comment">
-          <span
-            className="post-like"
+          <p className={"post-body"}>{this.props.post.body}</p>
+          {this.renderLikeCount()}
+          <div
+            className={`like-box ${this.state.likeBoxKlass}`}
             onMouseOver={this.openLikeBox}
             onMouseOut={this.closeLikeBox}
-            onClick={this.handleEmojiClick("Like")}
           >
-            <span className="like-span">
-              {this.renderLike()}
-            </span>
-          </span>
-          <span className="post-comment" onClick={this.focusCommentTextarea}>
-            <span className="comment-span">
-              <p><i className="far fa-comment-alt"></i></p>
-              <p className="like-comment-p">
-                Comment
-              </p>
-            </span>
-          </span>
-        </div>
-        {comments}
-        {this.renderCommentItems()}
-        <div className="post-comment-box">
-          <div className="post-comment-box-img">
-            <img onClick={this.focusCommentTextarea} src={currentImg} />
+            <img src={window.like} onClick={this.handleEmojiClick("Like")} />
+            <img src={window.love} onClick={this.handleEmojiClick("Love")} />
+            <img src={window.haha} onClick={this.handleEmojiClick("Haha")} />
+            <img src={window.angry} onClick={this.handleEmojiClick("Angry")} />
+            <img src={window.sad} onClick={this.handleEmojiClick("Sad")} />
+            <img src={window.wow} onClick={this.handleEmojiClick("Wow")} />
           </div>
-          <div className="post-comment-box-msg">
-            <textarea 
-              ref={this.commentTextarea} 
-              placeholder="Write a comment..." 
-              value={this.state.commentBody} 
-              onChange={this.update} 
-              onKeyDown={e => {if (e.key === "Enter") this.handleSubmit(e);}}
-            />
-            <p className="comment-msg-p">Press Enter to post.</p>
+          <div className="post-like-comment">
+            <span
+              className="post-like"
+              onMouseOver={this.openLikeBox}
+              onMouseOut={this.closeLikeBox}
+              onClick={this.handleEmojiClick("Like")}
+            >
+              <span className="like-span">
+                {this.renderLike()}
+              </span>
+            </span>
+            <span className="post-comment" onClick={this.focusCommentTextarea}>
+              <span className="comment-span">
+                <p><i className="far fa-comment-alt"></i></p>
+                <p className="like-comment-p">
+                  Comment
+                </p>
+              </span>
+            </span>
+          </div>
+          {comments}
+          {this.renderCommentItems()}
+          <div className="post-comment-box">
+            <div className="post-comment-box-img">
+              <img onClick={this.focusCommentTextarea} src={currentImg} />
+            </div>
+            <div className="post-comment-box-msg">
+              <textarea 
+                ref={this.commentTextarea} 
+                placeholder="Write a comment..." 
+                value={this.state.commentBody} 
+                onChange={this.update} 
+                onKeyDown={e => {if (e.key === "Enter") this.handleSubmit(e);}}
+              />
+              <p className="comment-msg-p">Press Enter to post.</p>
+            </div>
           </div>
         </div>
-      </div>
+      </>
     );
   }
 }

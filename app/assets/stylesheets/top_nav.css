@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 .top-nav-container {
     height: 42px;
     background-color: #4267AA;
@@ -27,7 +31,6 @@
     display: inline-block;
     height: 28px;
     vertical-align: middle;
-    cursor: pointer;
     border-radius: 2px;
 }
 
@@ -36,7 +39,7 @@
     color: white;
 }
 
-.top-nav ul:nth-child(2) li:first-child:hover, .top-nav ul:nth-child(2) li:nth-child(2):hover {
+.top-nav ul:nth-child(2) li.top-nav-hover:hover {
     background-color: #345794;
 }
 
@@ -44,7 +47,7 @@
     padding: 0 12px;
 }
 
-.top-nav ul:nth-child(2) li:last-child {
+.top-nav ul:nth-child(2) li.top-nav-last-li {
     padding-right: 0;
     padding-left: 8px;
 }
@@ -54,6 +57,7 @@
     font-size: 17px;
     margin: 4px 5px;
     margin-top: 6px;
+    cursor: pointer;
 }
 
 i.fab.fa-facebook-f {
@@ -189,14 +193,18 @@ i.fas.fa-caret-down.dropdown-active {
     background-color: #f13d26;
     right: 0;
     padding: 0 3px;
+    margin-top: 3px;
     border-radius: 2px;
     box-shadow: 0 1px 1px 1px rgba(0, 0, 0, .1);
+    cursor: pointer;
 }
 
 .friend-notification-count p {
     line-height: 0;
-    font-size: 10px;
-    margin-top: 8px;
+    font-size: 11px;
+    margin: 0;
+    margin-top: 6px;
+    padding-bottom: 7px;
 }
 
 .search-results {
@@ -235,3 +243,131 @@ i.fas.fa-caret-down.dropdown-active {
     top: 14px;
     position: absolute;
 }
+
+.notifications-container {
+    position: absolute;
+    width: 400px;
+    max-height: 500px;
+    background-color: #fff;
+    right: 265px;
+    top: 42px;
+    -webkit-font-smoothing: subpixel-antialiased;
+    border: 1px solid rgba(100, 100, 100, .4);
+    border-radius: 0 0 2px 2px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+    overflow: auto;
+    display: none;
+}
+
+.notifications-container.active {
+    display: block;
+}
+
+.notifications-tooltip {
+    background-color: #fff;
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    top: 38px;
+    right: 308px;
+    transform: rotate(45deg);
+    display: none;
+    z-index: 2;
+}
+
+.notifications-tooltip.active {
+    display: block;
+}
+
+.notifications-container.active.other {
+    right: 238px;
+}
+
+.notifications-container.active.other ul li:hover {
+    background-color: #fafafa;
+}
+
+.notifications-tooltip.active.other {
+    right: 281px;
+}
+
+.notifications-header {
+    padding: 8px 12px 6px 12px;
+    border-bottom: solid 1px #dddfe2;
+    font-weight: bold;
+    -webkit-font-smoothing: antialiased;
+    color: #333;
+    font-size: 12px;
+}
+
+.top-nav .notifications-content ul li {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 63px;
+    padding: 6px 12px;
+    box-sizing: border-box;
+}
+
+.top-nav .notifications-content ul li:not(:last-child) {
+    border-bottom: solid 1px #dddfe2;
+    border-radius: 0;
+}
+
+.pending-friend-img-name {
+    display: flex;
+    -webkit-font-smoothing: antialiased;
+    font-weight: bold;
+}
+
+.top-nav .pending-friend-img-name a {
+    color: #385898;
+    margin: auto;
+}
+
+.top-nav .pending-friend-img-name span {
+    margin: auto;
+    font-weight: normal;
+    margin-left: 4px;
+}
+
+.pending-friend-img-name a:last-child {
+    font-weight: bold;
+    -webkit-font-smoothing: antialiased;
+}
+
+.pending-friend-img-name a:nth-child(2):hover, .pending-friend-img-name a:last-child:hover {
+    text-decoration: underline;
+}
+
+.pending-friend-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-size: cover;
+    margin-right: 10px;
+}
+
+.pending-friend-btn {
+    margin: auto 0;
+}
+
+.pending-friend-btn button {
+    padding: 3px 10px;
+    font-weight: bold;
+    -webkit-font-smoothing: antialiased;
+    cursor: pointer;
+    border-radius: 2px;
+}
+
+.pending-friend-btn button.intro-bio-cancel-btn {
+    margin-left: 4px;
+}
+
+.no-new-friend-requests {
+    color: #90949c;
+    padding: 25px 0;
+    text-align: center;
+    background-color: #f5f6f7;
+}
+

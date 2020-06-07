@@ -54,6 +54,10 @@ class User < ApplicationRecord
         foreign_key: :requestee_id,
         class_name: :Friendship
 
+    has_many :notifications,
+        foreign_key: :user_id,
+        class_name: :Notification
+
     def self.generate_session_token
         SecureRandom.urlsafe_base64
     end

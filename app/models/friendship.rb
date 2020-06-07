@@ -12,6 +12,7 @@
 class Friendship < ApplicationRecord
     validates :requestee_id, :requester_id, presence: true
     validates :status, inclusion: { in: [true, false] }
+    after_create :create_notification
 
     belongs_to :requester,
         foreign_key: :requester_id,
@@ -20,4 +21,10 @@ class Friendship < ApplicationRecord
     belongs_to :requestee,
         foreign_key: :requestee_id,
         class_name: :User
+
+    has_one :notification, as: :notifiable, dependent: :destroy
+
+    def create_notification
+        Notification.create(user_id: self.requestee_id, notifiable_id: self.id, notifiable_type: "Friendship")
+    end
 end

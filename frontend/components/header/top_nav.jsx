@@ -1,23 +1,50 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
+import { HashLink } from 'react-router-hash-link';
 
 class TopNav extends React.Component {
     constructor(props) {
         super(props);
+
         this.state = {
             klass: "",
             pendingColor: "",
             search: "",
             focused: false,
-            searchBtn: ""
+            searchBtn: "",
+            friendClass: "",
+            friendColor: "",
+            notificationClass: "",
+            notificationColor: ""
         };
 
         this.logout = this.logout.bind(this);
         this.openDropdown = this.openDropdown.bind(this);
         this.closeDropdown = this.closeDropdown.bind(this);
-        this.friendNotification = this.friendNotification.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleLink = this.handleLink.bind(this);
+        this.readFriendRequests = this.readFriendRequests.bind(this);
+        this.readNotifications = this.readNotifications.bind(this);
+    }
+
+    componentDidMount() {
+        if (this.props.user) {
+            window.addEventListener("click", e => {
+                if (!e.target.closest(`[id=friend-notification]`)) {
+                    this.setState({ friendClass: "", friendColor: "" });
+                }
+
+                if (!e.target.closest(`[id=notification]`)) {
+                    this.setState({ notificationClass: "", notificationColor: "" });
+                }
+            });
+        }
+    }
+
+    componentWillUnmount() {
+        this.setState = (state, callback) => {
+            return;
+        };
     }
 
     logout() {
@@ -34,22 +61,132 @@ class TopNav extends React.Component {
         this.setState({ klass: "" });
     }
 
-    friendNotification() {
-        if (this.props.pendingFriends.length > 0) {
+    friendNotifications() {      
+        if (this.props.unreadRequestsCount > 0) {
             return (
-                <div className="friend-notification">
+                <div onClick={this.readFriendRequests} className="friend-notification" id="friend-notification">
                     <div className="friend-notification-count">
-                        <p>{this.props.pendingFriends.length}</p>
+                        <p>{this.props.unreadRequestsCount}</p>
                     </div>
                     <i className="fas fa-user-friends" style={{ color: "#fff" }}></i>
                 </div>
             )
         } else {
             return (
-                <i className="fas fa-user-friends">
+                <i id="friend-notification" style={{ color: this.state.friendColor }} onClick={() => this.setState({ friendClass: "active", friendColor: "#fff" })} className="fas fa-user-friends">
                 </i>
             )
         }
+    }
+
+    friendRequests() {
+        if (this.props.pendingFriends.length > 0) {
+            const friendRequests = this.props.pendingFriends.map((friend, i) => {
+                const image = friend.requester_img ? friend.requester_img : window.no_image;
+
+                return (
+                    <li key={`friend-${friend.id * i}`}>
+                        <div className="pending-friend-img-name">
+                            <Link to={`/users/${friend.requester_id}`}><div className="pending-friend-img" style={{ backgroundImage: `url(${image})` }}></div></Link>
+                            <Link to={`/users/${friend.requester_id}`}>{friend.requester_name}</Link>
+                        </div>
+                        <div className="pending-friend-btn">
+                            <button className="intro-bio-save-btn">Confirm</button>
+                            <button className="intro-bio-cancel-btn">Delete</button>
+                        </div>
+                    </li>
+                )
+            })
+
+            return (<>{friendRequests}</>);
+        } else {
+            return (
+                <div className="no-new-friend-requests">
+                    No new requests
+                </div>
+            )
+        }
+    }
+
+    readFriendRequests() {
+        this.setState({ friendClass: "active", friendColor: "#fff" });
+
+        this.props.newFriendRequests.forEach(request => {
+            this.props.readNotification(request.id);
+        })
+    }
+
+    otherNotifications() {
+        if (this.props.unreadNotificationsCount > 0) {
+            return (
+                <div className="friend-notification" onClick={this.readNotifications} id="notification">
+                    <div className="friend-notification-count">
+                        <p>{this.props.unreadNotificationsCount}</p>
+                    </div>
+                    <i className="fas fa-bell" style={{ color: "#fff" }}></i>
+                </div>
+            )
+        } else {
+            return (
+                <i className="fas fa-bell" style={{ color: this.state.notificationColor }} onClick={() => this.setState({ notificationClass: "active", notificationColor: "#fff" })} id="notification"></i>
+            )
+        }
+    }
+
+    notifications() {
+        if (this.props.notifications.length > 0) {
+            const notifications = this.props.notifications.map((notification, i) => {
+                const image = notification.sender_img ? notification.sender_img : window.no_image;
+                let text;
+                let linkText;
+                
+                switch(notification.type) {
+                    case "Post":
+                        text = "posted on your";
+                        linkText = "wall";
+                        break;
+                    case "Comment":
+                        text = "commented on your";
+                        linkText = "post";
+                        break;
+                    case "Like_Post":
+                        text = "liked your";
+                        linkText = "post";
+                        break;
+                    case "Like_Comment":
+                        text = "liked your";
+                        linkText = "comment";
+                        break;
+                }
+
+                return (
+                    <li key={`no-${notification.id * i}`}>
+                        <div className="pending-friend-img-name">
+                            <Link to={`/users/${notification.sender_id}`}><div className="pending-friend-img" style={{ backgroundImage: `url(${image})` }}></div></Link>
+                            <Link to={`/users/${notification.sender_id}`}>{notification.sender_name}</Link><span>{text} <HashLink to={`/users/${notification.post_user_id}/#${notification.post_id}`}>{linkText}</HashLink>.</span>
+                        </div>
+                    </li>
+                )
+            })
+
+            return (<>{notifications}</>);
+        } else {
+            return (
+                <div className="no-new-friend-requests">
+                    No notifications
+                </div>
+            )
+        }
+    }
+
+    readNotifications() {
+        this.setState({ notificationClass: "active", notificationColor: "#fff" });
+
+        this.props.notifications.forEach(notification => {
+            if (!notification.read) {
+                this.props.readNotification(notification.id);
+            }
+        })
     }
 
     handleChange(e) {
@@ -120,16 +257,38 @@ class TopNav extends React.Component {
                         </li>
                     </ul>
                     <ul>
-                        <Link to={`/users/${id}`}><li className="top-nav-prof-img-li"><p>{first_name}</p></li></Link>
+                        <Link to={`/users/${id}`}><li className="top-nav-prof-img-li top-nav-hover"><p>{first_name}</p></li></Link>
                         <div className="top-nav-divider" />
-                        <Link to="/"><li><p>Home</p></li></Link>
+                        <Link to="/"><li className="top-nav-hover"><p>Home</p></li></Link>
                         <div className="top-nav-divider" />
                         <li>
-                            {this.friendNotification()}
-                            <i className="fas fa-bell"></i>
+                            {this.friendNotifications()}
+                            <div className={`notifications-tooltip ${this.state.friendClass}`} />
+                            <div className={`notifications-container ${this.state.friendClass}`} id="friend-notification">
+                                <div className="notifications-header">
+                                    Friend Requests
+                                </div>
+                                <div className="notifications-content">
+                                    <ul>
+                                        {this.friendRequests()}
+                                    </ul>
+                                </div>
+                            </div>
+                            {this.otherNotifications()}
+                            <div className={`notifications-tooltip ${this.state.notificationClass} other`} />
+                            <div className={`notifications-container ${this.state.notificationClass} other`} id="notification">
+                                <div className="notifications-header">
+                                    Notifications
+                                </div>
+                                <div className="notifications-content">
+                                    <ul>
+                                        {this.notifications()}
+                                    </ul>
+                                </div>
+                            </div>
                         </li>
                         <div className="top-nav-divider" />
-                        <li>
+                        <li className="top-nav-last-li">
                             <i className="fas fa-question-circle"></i>
                             <button className="logout-arrow-btn" onClick={this.openDropdown} onBlur={this.closeDropdown}>
                                 <i className={`fas fa-caret-down ${this.state.klass}`}></i>

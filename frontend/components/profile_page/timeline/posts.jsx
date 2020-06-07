@@ -10,7 +10,7 @@ export default class Posts extends React.Component {
             posts = this.props.posts.map((post, i) => {
                 if (post) {
                     return (
-                        <PostItemsContainer key={post.id} post={post} posts={this.props.posts} currentUser={this.props.currentUser} users={this.props.users}>
+                        <PostItemsContainer key={post.id} id={post.id} post={post} posts={this.props.posts} currentUser={this.props.currentUser} users={this.props.users}>
                         </PostItemsContainer>
                     );
                 }

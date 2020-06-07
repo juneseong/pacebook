@@ -5,6 +5,7 @@ import LikesReducer from "./likes_reducer";
 import CommentsReducer from "./comments_reducer";
 import FriendshipsReducer from "./friendships_reducer";
 import SearchReducer from "./searches_reducer";
+import NotificationsReducer from "./notifications_reducer";
 
 const EntitiesReducer = combineReducers({
     users: UsersReducer,
@@ -12,7 +13,8 @@ const EntitiesReducer = combineReducers({
     likes: LikesReducer,
     comments: CommentsReducer,
     friendships: FriendshipsReducer,
-    search: SearchReducer
+    notifications: NotificationsReducer,
+    search: SearchReducer,
 });
 
 export default EntitiesReducer;

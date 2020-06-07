@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :comments, only: [:destroy]
     resources :likes, only: [:create, :destroy]
     resources :friendships, only: [:create, :update, :destroy]
+    resources :notifications, only: [:create, :update, :show]
   end
 
   root "static_pages#root"

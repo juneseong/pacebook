@@ -12,6 +12,7 @@
 #
 class Comment < ApplicationRecord
     validates :user_id, :post_id, :body, presence: true
+    after_create :create_notification
 
     belongs_to :user,
         foreign_key: :user_id,
@@ -23,4 +24,11 @@ class Comment < ApplicationRecord
         optional: true
 
     has_many :likes, as: :likeable, dependent: :destroy
+    has_one :notification, as: :notifiable, dependent: :destroy
+
+    def create_notification
+        if self.post.user_id != self.user_id
+            Notification.create(user_id: self.post.user_id, notifiable_id: self.id, notifiable_type: "Comment")
+        end
+    end
 end
