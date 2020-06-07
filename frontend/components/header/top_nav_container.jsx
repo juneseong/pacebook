@@ -3,6 +3,7 @@ import TopNav from "./top_nav";
 import { logout } from "../../actions/session_action";
 import { fetchSearchUsers } from "../../actions/users_action";
 import { readNotification } from "../../actions/notifications_action";
+import { acceptFriend, deleteFriend } from "../../actions/friendships_action"; 
 
 const mapStateToProps = (state) => {
     const user = state.entities.users[state.session.id];
@@ -42,7 +43,9 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = dispatch => ({
     logout: () => dispatch(logout()),
     searchUsers: data => dispatch(fetchSearchUsers(data)),
-    readNotification: id => dispatch(readNotification(id))
+    readNotification: id => dispatch(readNotification(id)),
+    acceptFriend: friendship => dispatch(acceptFriend(friendship)),
+    deleteFriend: friendship => dispatch(deleteFriend(friendship))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TopNav);

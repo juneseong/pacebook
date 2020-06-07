@@ -49,7 +49,7 @@ class TopNav extends React.Component {
 
             setTimeout(function () {
                 post.nextSibling.classList.add("remove");
-            }, 2000);
+            }, 1200);
         }
     }
 
@@ -103,8 +103,8 @@ class TopNav extends React.Component {
                             <Link to={`/users/${friend.requester_id}`}>{friend.requester_name}</Link>
                         </div>
                         <div className="pending-friend-btn">
-                            <button className="intro-bio-save-btn">Confirm</button>
-                            <button className="intro-bio-cancel-btn">Delete</button>
+                            <button onClick={() => this.props.acceptFriend({ id: friend.id })} className="intro-bio-save-btn">Confirm</button>
+                            <button onClick={() => this.props.deleteFriend({ requestee_id: friend.requester_id })} className="intro-bio-cancel-btn">Delete</button>
                         </div>
                     </li>
                 )

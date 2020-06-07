@@ -54,7 +54,7 @@ const mapDispatchToProps = dispatch => ({
     fetchPosts: userId => dispatch(fetchPosts(userId)),
     addFriend: friendship => dispatch(addFriend(friendship)),
     acceptFriend: friendship => dispatch(acceptFriend(friendship)),
-    deleteFriend: friendship => dispatch(deleteFriend(friendship)),
+    deleteFriend: friendship => dispatch(deleteFriend(friendship))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProfilePage);
