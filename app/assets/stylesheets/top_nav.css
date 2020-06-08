@@ -257,7 +257,7 @@ i.fas.fa-question-circle.dropdown-active {
     width: 400px;
     max-height: 500px;
     background-color: #fff;
-    right: 265px;
+    margin-left: -350px;
     top: 42px;
     -webkit-font-smoothing: subpixel-antialiased;
     border: 1px solid rgba(100, 100, 100, .4);
@@ -277,7 +277,7 @@ i.fas.fa-question-circle.dropdown-active {
     height: 10px;
     position: absolute;
     top: 38px;
-    right: 308px;
+    margin-left: 12px;
     transform: rotate(45deg);
     display: none;
     z-index: 2;
@@ -288,7 +288,7 @@ i.fas.fa-question-circle.dropdown-active {
 }
 
 .notifications-container.active.other {
-    right: 238px;
+    margin-left: -335px;
 }
 
 .notifications-container.active.other ul li:hover {
@@ -296,7 +296,7 @@ i.fas.fa-question-circle.dropdown-active {
 }
 
 .notifications-tooltip.active.other {
-    right: 281px;
+    margin-left: 39px;
 }
 
 .notifications-header {
