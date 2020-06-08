@@ -222,19 +222,16 @@ button.intro-bio-save-btn:active {
     border: 1px solid #dddfe2;
     margin-bottom: 10px;
     padding: 12px 12px 1px 12px;
-    transition: all 350ms ease-in-out;
 }
 
 .profile-post-items.highlight {
     border: 2px solid #3578E5;
     padding: 11px 11px 0 11px;
-    transition: all 350ms ease-in-out;
 }
 
 .profile-post-items.highlight.remove {
     border: 1px solid #dddfe2;
     padding: 12px 12px 1px 12px;
-    transition: all 350ms ease-in-out;
 }
 
 .post-item-profile-img {

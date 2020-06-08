@@ -50,7 +50,7 @@ class TopNav extends React.Component {
 
             setTimeout(function () {
                 post.nextSibling.classList.add("remove");
-            }, 1200);
+            }, 2000);
         }
     }
 
