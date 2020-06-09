@@ -52,8 +52,8 @@ textarea {
 
 .anchor {
   display: block;
-  height: 25vh; 
-  margin-top: -25vh; 
+  height: 185px; 
+  margin-top: -185px; 
   visibility: hidden;
 }
 
