@@ -33,7 +33,8 @@ Profile users can update their profile and cover photo.
 // profile_page.jsx
 
 uploadImage(e) {
-    const image = e.target.classList.value === "profile-img" ? "user[profile_img]" : "user[cover_img]";
+    const image = e.currentTarget.classList.value === "profile-img"
+        ? "user[profile_img]" : "user[cover_img]";
     const reader = new FileReader();
     const file = e.currentTarget.files[0];
 
