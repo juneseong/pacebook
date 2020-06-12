@@ -23,7 +23,8 @@ Profile users can update their profile and cover photo.
 Users can add, accept or delete other users as a friend.
 
 ### 5. Notifications
-Users can receive friend requests and notifications for new posts, comments and likes.
+Users can receive friend requests and notifications for new posts, comments and likes.<br>
+![pacebook-giphy5](https://user-images.githubusercontent.com/57915629/84535470-df176100-acb9-11ea-8839-70752624602b.gif)
 
 ### 6. User Search
 Users can search for other users.<br>
