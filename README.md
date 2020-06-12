@@ -14,8 +14,6 @@ Users can sign up, sign in, log out.<br>
 
 ### 2. Posts, Comments, Likes
 Users can create and delete posts, comments or likes.
-<br><br>
-Polymorphic association was leveraged on posts and comments to implement likes for DRY code.
 ```ruby
 # like.rb
 belongs_to :likeable, polymorphic: true
@@ -26,6 +24,7 @@ has_many :likes, as: :likeable, dependent: :destroy
 # comment.rb
 has_many :likes, as: :likeable, dependent: :destroy
 ```
+Polymorphic association was leveraged on posts and comments to implement likes for DRY code.
 
 ### 3. User Image Upload
 Profile users can update their profile and cover photo.
