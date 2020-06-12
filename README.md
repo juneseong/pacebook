@@ -16,6 +16,18 @@ Users can sign up, sign in, log out.<br>
 Users can create and delete posts, comments or likes.<br>
 ![pacebook-giphy3](https://user-images.githubusercontent.com/57915629/84533292-d4f36380-acb5-11ea-8ca7-7d76c56f5b27.gif)
 
+Polymorphic association was leveraged on posts and comments to implement likes for DRY code.
+```ruby
+# like.rb
+belongs_to :likeable, polymorphic: true
+
+# post.rb
+has_many :likes, as: :likeable, dependent: :destroy
+
+# comment.rb
+has_many :likes, as: :likeable, dependent: :destroy
+```
+
 ### 3. User Image Upload
 Profile users can update their profile and cover photo.
 
