@@ -29,29 +29,6 @@ Polymorphic association was leveraged on posts and comments to implement likes f
 
 ### 3. User Image Upload
 Profile users can update their profile and cover photo.
-```javascript
-// profile_page.jsx
-
-uploadImage(e) {
-    const image = e.currentTarget.classList.value === "profile-img"
-        ? "user[profile_img]" : "user[cover_img]";
-    const reader = new FileReader();
-    const file = e.currentTarget.files[0];
-
-    reader.onloadend = () =>
-        this.setState({ imageUrl: reader.result, imageFile: file }, () => {
-        const formData = new FormData();
-        if (this.state.imageFile) formData.append(image, this.state.imageFile);
-        this.props.updateUser(this.props.currentUser.id, formData);
-    });
-
-    if (file) {
-        reader.readAsDataURL(file);
-    } else {
-        this.setState({ imageUrl: "", imageFile: null });
-    }
-}
-```
 
 ### 4. Friending
 Users can add, accept or delete other users as a friend.
