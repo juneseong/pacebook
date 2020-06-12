@@ -5,15 +5,15 @@
 Pacebook is a pixel-perfect Facebook clone built with React and Rails.
 
 ## Technologies
-Pacebook is built with `Ruby on Rails` as the backend server and `React`, `Redux`, `JavaScript`, `HTML` and `CSS` as the frontend design. `AWS S3` was utilized to store user's profile and cover photos.
+Pacebook is built with `Ruby on Rails` as the backend server and `React`, `Redux`, `JavaScript`, `HTML5` and `CSS3` as the frontend design. `AWS S3` was utilized to store user's profile and cover photos.
 
 ## Features
 ### 1. User Authentication
-![Screen Shot 2020-05-14 at 12 11 15 AM](https://user-images.githubusercontent.com/57915629/81891837-84360100-9577-11ea-85f7-8446815fe85c.png)
+![pacebook-giphy1](https://user-images.githubusercontent.com/57915629/84531925-572e5880-acb3-11ea-8748-ce9d047c381a.gif)
 <br>
 Users can sign up, sign in, log out.
 
-### 2. Post, Comment, Like
+### 2. Posts, Comments, Likes
 ![Screen Shot 2020-05-14 at 12 13 35 AM](https://user-images.githubusercontent.com/57915629/81891923-c7906f80-9577-11ea-8fa8-87b56b9ce175.png)
 <br>
 Users can create and delete posts, comments or likes.
