@@ -14,13 +14,11 @@ Pacebook is built with `Ruby on Rails` as the backend server and `React`, `Redux
 Users can sign up, sign in, log out.
 
 ### 2. Posts, Comments, Likes
-![Screen Shot 2020-05-14 at 12 13 35 AM](https://user-images.githubusercontent.com/57915629/81891923-c7906f80-9577-11ea-8fa8-87b56b9ce175.png)
+![pacebook-giphy2](https://user-images.githubusercontent.com/57915629/84532438-3d414580-acb4-11ea-85a5-be758c2d6248.gif)
 <br>
 Users can create and delete posts, comments or likes.
 
 ### 3. User Image Upload
-![Screen Shot 2020-05-14 at 12 22 17 AM](https://user-images.githubusercontent.com/57915629/81892378-feb35080-9578-11ea-80c6-b5161f9b3eb2.png)
-<br>
 Profile users can update their profile and cover photo.
 
 ### 4. Friending
