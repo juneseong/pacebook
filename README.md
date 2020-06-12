@@ -46,9 +46,9 @@ uploadImage(e) {
     });
 
     if (file) {
-      reader.readAsDataURL(file);
+        reader.readAsDataURL(file);
     } else {
-      this.setState({ imageUrl: "", imageFile: null });
+        this.setState({ imageUrl: "", imageFile: null });
     }
 }
 ```
