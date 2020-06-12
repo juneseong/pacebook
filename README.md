@@ -1,7 +1,4 @@
 # README
-
-![Screen Shot 2020-05-13 at 11 44 58 PM](https://user-images.githubusercontent.com/57915629/81890499-1cca8200-9574-11ea-9740-6ff9b6473d3d.png)
-
 [**Project Live**](https://pacebook-app.herokuapp.com/#/)
 
 ## Pacebook
@@ -26,3 +23,11 @@ Users can create and delete posts, comments or likes.
 <br>
 Profile users can update their profile and cover photo.
 
+### 4. Friending
+Users can add, accept or delete other users as a friend.
+
+### 5. Notifications
+Users can receive friend requests and notifications for new posts, comments and likes.
+
+### 6. User Search
+Users can search for other users.
