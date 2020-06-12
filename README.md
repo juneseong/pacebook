@@ -2,14 +2,14 @@
 [**Project Live**](https://pacebook-app.herokuapp.com/#/)
 
 ## Pacebook
-Pacebook is a pixel-perfect Facebook clone built with React and Rails.
+Pacebook is a pixel perfect Facebook clone website with posts, comments, likes, image upload, friending and notification functions.
 
 ## Technologies
 Pacebook is built with `Ruby on Rails` as the backend server and `React`, `Redux`, `JavaScript`, `HTML5` and `CSS3` as the frontend design. `AWS S3` was utilized to store user's profile and cover photos.
 
 ## Features
 ### 1. User Authentication
-Users can sign up, sign in, log out.<br>
+Users can sign up, sign in and sign out.<br>
 ![pacebook-giphy1](https://user-images.githubusercontent.com/57915629/84531925-572e5880-acb3-11ea-8748-ce9d047c381a.gif)
 
 ### 2. Posts, Comments, Likes
@@ -35,6 +35,22 @@ Users can add, accept or delete other users as a friend.
 ### 5. Notifications
 Users can receive friend requests and notifications for new posts, comments and likes.<br>
 ![pacebook-giphy5](https://user-images.githubusercontent.com/57915629/84535470-df176100-acb9-11ea-8839-70752624602b.gif)
+
+```ruby
+# notification.rb
+belongs_to :notifiable, polymorphic: true
+
+# post.rb
+after_create :create_notification
+has_one :notification, as: :notifiable, dependent: :destroy
+
+def create_notification
+    if self.user_id != self.receiver_id
+        Notification.create(user_id: self.receiver_id, notifiable_id: self.id, notifiable_type: "Post")
+    end
+end
+```
+Polymorphic association was leveraged on posts, comments, likes and friending to implement notifications for DRY code. `create_notification` is called after post, comment, like or friendship is created.
 
 ### 6. User Search
 Users can search for other users.<br>
