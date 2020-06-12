@@ -13,9 +13,8 @@ Users can sign up, sign in, log out.<br>
 ![pacebook-giphy1](https://user-images.githubusercontent.com/57915629/84531925-572e5880-acb3-11ea-8748-ce9d047c381a.gif)
 
 ### 2. Posts, Comments, Likes
-Users can create and delete posts, comments or likes.<br>
-![pacebook-giphy3](https://user-images.githubusercontent.com/57915629/84533292-d4f36380-acb5-11ea-8ca7-7d76c56f5b27.gif)
-
+Users can create and delete posts, comments or likes.
+<br><br>
 Polymorphic association was leveraged on posts and comments to implement likes for DRY code.
 ```ruby
 # like.rb
