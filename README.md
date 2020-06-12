@@ -14,7 +14,7 @@ Pacebook is built with `Ruby on Rails` as the backend server and `React`, `Redux
 Users can sign up, sign in, log out.
 
 ### 2. Posts, Comments, Likes
-![pacebook-giphy2](https://user-images.githubusercontent.com/57915629/84532438-3d414580-acb4-11ea-85a5-be758c2d6248.gif)
+![pacebook-giphy3](https://user-images.githubusercontent.com/57915629/84533292-d4f36380-acb5-11ea-8ca7-7d76c56f5b27.gif)
 <br>
 Users can create and delete posts, comments or likes.
 
