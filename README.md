@@ -55,6 +55,4 @@ end
 Polymorphic association was leveraged on posts, comments, likes and friending to implement notifications for DRY code. `create_notification` is called after post, comment, like or friendship is created.
 
 ### 6. User Search
-![pacebook-giphy4](https://user-images.githubusercontent.com/57915629/84534786-90b59280-acb8-11ea-9de2-2acaf019c469.gif)
-<br>
 Users can search for other users.
