@@ -11,7 +11,7 @@ Pacebook is built with `Ruby on Rails` as the backend server and `React`, `Redux
 ### 1. User Authentication
 ![pacebook-giphy1](https://user-images.githubusercontent.com/57915629/84531925-572e5880-acb3-11ea-8748-ce9d047c381a.gif)
 <br>
-Users can sign up, sign in and sign out.
+Users can sign up, sign in and sign out. Form validation was implemented so users can see error messages next to the corresponding input field.
 
 ### 2. Posts, Comments, Likes
 Users can create and delete posts, comments or likes.
@@ -36,7 +36,7 @@ Users can add, accept or delete other users as a friend.
 ### 5. Notifications
 ![pacebook-giphy5](https://user-images.githubusercontent.com/57915629/84535470-df176100-acb9-11ea-8839-70752624602b.gif)
 <br>
-Users can receive friend requests and notifications for new posts, comments and likes.
+Users can receive notifications for new friend requests, posts, comments and likes.
 
 ```ruby
 # notification.rb
@@ -55,4 +55,4 @@ end
 Polymorphic association was leveraged on posts, comments, likes and friending to implement notifications for DRY code. `create_notification` is called after post, comment, like or friendship is created.
 
 ### 6. User Search
-Users can search for other users.
+Users can search for other users using the search bar.
