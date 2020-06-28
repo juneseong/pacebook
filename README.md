@@ -37,26 +37,6 @@ Users can add, accept or delete other users as a friend.
 ![pacebook-giphy5](https://user-images.githubusercontent.com/57915629/84535470-df176100-acb9-11ea-8839-70752624602b.gif)
 <br>
 Users can receive notifications for new friend requests, posts, comments and likes.
-<br>
-Polymorphic association was leveraged on posts, comments, likes and friending to implement notifications for DRY code. `create_notification` is called after post, comment, like or friendship is created.
-```ruby
-# notification.rb
-belongs_to :notifiable, polymorphic: true
-
-# post.rb
-after_create :create_notification
-has_one :notification, as: :notifiable, dependent: :destroy
-
-def create_notification
-    if self.user_id != self.receiver_id
-        Notification.create(
-            user_id: self.receiver_id, 
-            notifiable_id: self.id, 
-            notifiable_type: "Post"
-        )
-    end
-end
-```
 
 ### 6. User Search
 Users can search for other users using the search bar.
