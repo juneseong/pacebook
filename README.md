@@ -48,7 +48,10 @@ has_one :notification, as: :notifiable, dependent: :destroy
 
 def create_notification
     if self.user_id != self.receiver_id
-        Notification.create(user_id: self.receiver_id, notifiable_id: self.id, notifiable_type: "Post")
+        Notification.create(
+            user_id: self.receiver_id, 
+            notifiable_id: self.id, 
+            notifiable_type: "Post")
     end
 end
 ```
