@@ -280,10 +280,6 @@ input[type=file], input[type=file]::-webkit-file-upload-button {
     margin-right: 8px;
 }
 
-.profile-page-section-body {
-    min-height: 300px;
-}
-
 .profile-img-upload, .cover-img-upload {
    opacity: 0.0;
    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";

@@ -1,0 +1,16 @@
+ul.photos-section {
+    margin: 0;
+    padding: 6px;
+    padding-right: 0;
+    padding-bottom: 0;
+    list-style: none;
+}
+
+ul.photos-section li {
+    width: 205px;
+    height: 205px;
+    display: inline-block;
+    background-size: cover;
+    margin-right: 5px;
+    margin-bottom: 2px;
+}
