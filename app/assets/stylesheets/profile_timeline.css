@@ -47,22 +47,35 @@ p.profile-friends-count {
     line-height: 0;
 }
 
-.friend-list {
+.friend-list, .photo-list {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-.friend-list li {
+.photo-list {
+    margin-top: 12px;   
+}
+
+.friend-list li, .photo-list li {
     display: inline-block;
     margin-top: 12px;
+}
+
+.photo-list li {
+    margin-top: 0;
+    margin-right: 4px;
+}
+
+.photo-list li.end {
+    margin-right: 0;
 }
 
 .profile-friends-li-p {
     margin-left: 4px;
 }
 
-.friend-list div {
+.friend-list div, .photo-list div {
     width: 92px;
     height: 92px;
     background-size: cover;
@@ -281,6 +294,10 @@ p.post-body {
     margin: 14px 0 12px 0;
     -webkit-font-smoothing: subpixel-antialiased;
     font-weight: 300;
+}
+
+img.post-img {
+    width: 100%;
 }
 
 .post-like-comment {

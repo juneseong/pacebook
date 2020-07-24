@@ -23,3 +23,9 @@ else
 end
 
 json.created_at date_time
+
+if post.img.attached?
+    json.img url_for(post.img)
+else
+    nil
+end

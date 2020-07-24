@@ -129,7 +129,7 @@ export default class ProfilePage extends React.Component {
     );
 
     const TimelineRoute = !currentUser ? () => <></> : () => (
-      <Route exact path="/users/:userId" render={() => <Timeline user={user} currentUser={currentUser} refresh={this.refreshPosts} updateUser={this.props.updateUser} friends={this.props.friends} />} />
+      <Route exact path="/users/:userId" render={() => <Timeline user={user} currentUser={currentUser} updateUser={this.props.updateUser} friends={this.props.friends} />} />
     );
 
     const AboutRoute = !currentUser ? () => (

@@ -20,7 +20,9 @@ export const createPost = (userId, formData) =>
   $.ajax({
     url: `/api/users/${userId}/posts`,
     method: "POST",
-    data: formData
+    data: formData,
+    contentType: false,
+    processData: false
   });
 
 export const deletePost = postId =>

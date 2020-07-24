@@ -10,8 +10,10 @@
 #  receiver_id :integer
 #
 class Post < ApplicationRecord
-    validates :body, :user_id, :receiver_id, presence: true
+    validates :user_id, :receiver_id, presence: true
     after_create :create_notification
+
+    has_one_attached :img
 
     belongs_to :user,
         foreign_key: :user_id,

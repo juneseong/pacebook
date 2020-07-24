@@ -346,6 +346,9 @@ export default class PostItems extends React.Component {
             </div>
           </div>
           <p className={"post-body"}>{this.props.post.body}</p>
+          {this.props.post.img
+            ? <img className="post-img" src={this.props.post.img} />
+            : null}
           {this.renderLikeCount()}
           <div
             className={`like-box ${this.state.likeBoxKlass}`}

@@ -29,6 +29,10 @@ body {
     height: 101vh;
 }
 
+#root {
+    margin-bottom: 10px;
+}
+
 .hr {
     border-top: 1px solid #ddd;
     margin: 8px 0;

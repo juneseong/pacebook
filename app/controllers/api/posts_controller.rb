@@ -51,6 +51,10 @@ class Api::PostsController < ApplicationController
         @post.user_id = current_user.id
         @post.receiver_id = params[:post][:receiver_id]
 
+        if params[:post][:img]
+            @post.img.attach(params[:post][:img])
+        end
+
         if @post.save
             render :show
         else
