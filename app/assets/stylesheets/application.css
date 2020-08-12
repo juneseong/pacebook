@@ -174,3 +174,28 @@ p.blue-font:hover {
 .modal-bg.active {
     display: block;
 }
+
+.spinner-container {
+    width: 100%;
+}
+
+.spinner {
+    border: 3px solid #fefefe;
+    border-radius: 50%;
+    border-top: 3px solid #3498db;
+    width: 20px;
+    height: 20px;
+    -webkit-animation: spin 1s linear infinite;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+}
+
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

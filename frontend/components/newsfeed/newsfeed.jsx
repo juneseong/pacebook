@@ -2,6 +2,7 @@ import React from "react";
 import PostItemsContainer from "../profile_page/timeline/post_items_container";
 import PostFormContainer from "../profile_page/timeline/post_form_container";
 import { Link } from "react-router-dom";
+import WithSpinner from "../with_spinner/with_spinner";
 
 export default class Newsfeed extends React.Component {
     constructor(props) {
@@ -25,7 +26,7 @@ export default class Newsfeed extends React.Component {
                 />
             );
         } else {
-            posts = <></>;
+            posts = <WithSpinner />;
         }
 
         return (

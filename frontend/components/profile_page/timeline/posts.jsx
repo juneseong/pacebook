@@ -1,6 +1,7 @@
 import React from "react";
 import PostItemsContainer from "./post_items_container";
 import PostFormContainer from "./post_form_container";
+import WithSpinner from "../../with_spinner/with_spinner";
 
 export default class Posts extends React.Component {
     render() {
@@ -16,7 +17,7 @@ export default class Posts extends React.Component {
                 }
             })
         } else {
-            posts = "";
+            posts = <WithSpinner />;
         }
         
         return (
